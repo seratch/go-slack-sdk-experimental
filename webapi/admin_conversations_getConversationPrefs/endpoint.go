@@ -1,0 +1,2 @@
+package admin_conversations_getConversationPrefs
+const ApiMethod string = "admin.conversations.getConversationPrefs"

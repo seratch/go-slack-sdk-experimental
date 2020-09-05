@@ -1,0 +1,2 @@
+package admin_conversations_ekm_listOriginalConnectedChannelInfo
+const ApiMethod string = "admin.conversations.ekm.listOriginalConnectedChannelInfo"

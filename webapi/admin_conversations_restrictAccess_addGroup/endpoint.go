@@ -1,0 +1,2 @@
+package admin_conversations_restrictAccess_addGroup
+const ApiMethod string = "admin.conversations.restrictAccess.addGroup"
