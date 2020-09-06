@@ -28,7 +28,8 @@ func main() {
 		apiMethodName := strings.ReplaceAll(filepath.Base(file), ".json", "")
 		packageName := strings.ReplaceAll(apiMethodName, ".", "_")
 		name := strcase.ToCamel(packageName)
-		cmd := exec.Command("bash", "-c",
+		cmd := exec.Command(
+			"bash", "-c",
 			fmt.Sprintf("quicktype --all-properties-optional --package %s -t %s", packageName, name))
 		stdin, _ := cmd.StdinPipe()
 		stdin.Write(json)
@@ -38,6 +39,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		} else {
+			fmt.Println(fmt.Sprintf("Generating %s ...", apiMethodName))
 			os.MkdirAll(fmt.Sprintf("webapi/%s", packageName), os.ModePerm)
 			ioutil.WriteFile(
 				fmt.Sprintf("webapi/%s/endpoint.go", packageName),
@@ -45,14 +47,12 @@ func main() {
 					packageName,
 					apiMethodName,
 				)),
-				0644,
-				)
+				0644)
 			body, _ := ioutil.ReadAll(stdout)
 			ioutil.WriteFile(
 				fmt.Sprintf("webapi/%s/response.go", packageName),
 				body,
-				0644,
-				)
+				0644)
 		}
 	}
 }

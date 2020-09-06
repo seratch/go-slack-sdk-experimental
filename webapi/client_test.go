@@ -3,11 +3,11 @@ package webapi
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/seratch/go-slack-sdk-experimental/webapi/chat_postMessage"
 	"io/ioutil"
 	"net/url"
 	"os"
 	"testing"
-	"webapi/chat_postMessage"
 )
 
 func TestWebClient_CallApi(t *testing.T) {
