@@ -554,6 +554,11 @@ type SelfPrefs struct {
 	HelpModalOpenTimestamp                         *int64          `json:"help_modal_open_timestamp,omitempty"`                           
 	HelpModalConsultBannerDismissed                *bool           `json:"help_modal_consult_banner_dismissed,omitempty"`                 
 	SeenChannelEmailTooltip                        *bool           `json:"seen_channel_email_tooltip,omitempty"`                          
+	JoinCallsDeviceSettings                        *string         `json:"join_calls_device_settings,omitempty"`                          
+	A11YDyslexic                                   *bool           `json:"a11y_dyslexic,omitempty"`                                       
+	ConnectDmEarlyAccess                           *bool           `json:"connect_dm_early_access,omitempty"`                             
+	SeenConnectDmCoachmark                         *bool           `json:"seen_connect_dm_coachmark,omitempty"`                           
+	XwsSidebarVariant                              *int64          `json:"xws_sidebar_variant,omitempty"`                                 
 }
 
 type LocalesEnabled struct {
@@ -763,6 +768,7 @@ type TeamPrefs struct {
 	InvitesLimit                                *bool          `json:"invites_limit,omitempty"`                                     
 	MemberAnalyticsDisabled                     *bool          `json:"member_analytics_disabled,omitempty"`                         
 	CallsLocations                              []string       `json:"calls_locations,omitempty"`                                   
+	WorkflowExtensionStepsEnabled               *bool          `json:"workflow_extension_steps_enabled,omitempty"`                  
 }
 
 type CallsApps struct {

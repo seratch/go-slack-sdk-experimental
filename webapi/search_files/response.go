@@ -96,6 +96,9 @@ type Match struct {
 	LinesMore          *int64   `json:"lines_more,omitempty"`          
 	PreviewIsTruncated *bool    `json:"preview_is_truncated,omitempty"`
 	ImageExifRotation  *int64   `json:"image_exif_rotation,omitempty"` 
+	LastEditor         *string  `json:"last_editor,omitempty"`         
+	NonOwnerEditable   *bool    `json:"non_owner_editable,omitempty"`  
+	Updated            *int64   `json:"updated,omitempty"`             
 }
 
 type Shares struct {
