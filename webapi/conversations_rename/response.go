@@ -52,6 +52,9 @@ type Channel struct {
 	Topic                   *Purpose `json:"topic,omitempty"`                     
 	Purpose                 *Purpose `json:"purpose,omitempty"`                   
 	PreviousNames           []string `json:"previous_names,omitempty"`            
+	IsMoved                 *int64   `json:"is_moved,omitempty"`                  
+	InternalTeamIDS         []string `json:"internal_team_ids,omitempty"`         
+	IsOpen                  *bool    `json:"is_open,omitempty"`                   
 }
 
 type Purpose struct {

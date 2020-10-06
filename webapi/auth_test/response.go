@@ -28,6 +28,8 @@ type AuthTest struct {
 	BotID        *string `json:"bot_id,omitempty"`       
 	EnterpriseID *string `json:"enterprise_id,omitempty"`
 	Error        *string `json:"error,omitempty"`        
+	AppName      *string `json:"app_name,omitempty"`     
+	AppID        *string `json:"app_id,omitempty"`       
 	Needed       *string `json:"needed,omitempty"`       
 	Provided     *string `json:"provided,omitempty"`     
 }

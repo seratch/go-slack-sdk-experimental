@@ -143,6 +143,7 @@ type Channel struct {
 	PendingShared      []string `json:"pending_shared,omitempty"`       
 	IsPendingEXTShared *bool    `json:"is_pending_ext_shared,omitempty"`
 	User               *string  `json:"user,omitempty"`                 
+	NameNormalized     *string  `json:"name_normalized,omitempty"`      
 }
 
 type Previous struct {

@@ -559,6 +559,13 @@ type SelfPrefs struct {
 	ConnectDmEarlyAccess                           *bool           `json:"connect_dm_early_access,omitempty"`                             
 	SeenConnectDmCoachmark                         *bool           `json:"seen_connect_dm_coachmark,omitempty"`                           
 	XwsSidebarVariant                              *int64          `json:"xws_sidebar_variant,omitempty"`                                 
+	UserCustomizedQuickReactionsDisplayFeature     *int64          `json:"user_customized_quick_reactions_display_feature,omitempty"`     
+	UserCustomizedQuickReactionsHasCustomized      *bool           `json:"user_customized_quick_reactions_has_customized,omitempty"`      
+	UserCustomizedQuickReactionsEmoji1             *string         `json:"user_customized_quick_reactions_emoji_1,omitempty"`             
+	UserCustomizedQuickReactionsEmoji2             *string         `json:"user_customized_quick_reactions_emoji_2,omitempty"`             
+	UserCustomizedQuickReactionsEmoji3             *string         `json:"user_customized_quick_reactions_emoji_3,omitempty"`             
+	JoinerMessageSuggestionDismissed               *bool           `json:"joiner_message_suggestion_dismissed,omitempty"`                 
+	HuddlesVariant                                 *int64          `json:"huddles_variant,omitempty"`                                     
 }
 
 type LocalesEnabled struct {
@@ -769,6 +776,9 @@ type TeamPrefs struct {
 	MemberAnalyticsDisabled                     *bool          `json:"member_analytics_disabled,omitempty"`                         
 	CallsLocations                              []string       `json:"calls_locations,omitempty"`                                   
 	WorkflowExtensionStepsEnabled               *bool          `json:"workflow_extension_steps_enabled,omitempty"`                  
+	WhoCanRequestEXTSharedChannels              *WhoCan        `json:"who_can_request_ext_shared_channels,omitempty"`               
+	AdminCustomizedQuickReactions               []string       `json:"admin_customized_quick_reactions,omitempty"`                  
+	EnableConnectDmEarlyAccess                  *bool          `json:"enable_connect_dm_early_access,omitempty"`                    
 }
 
 type CallsApps struct {

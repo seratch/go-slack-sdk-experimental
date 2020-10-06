@@ -60,6 +60,7 @@ type Message struct {
 	Subscribed      *bool         `json:"subscribed,omitempty"`       
 	ClientMsgID     *string       `json:"client_msg_id,omitempty"`    
 	Inviter         *string       `json:"inviter,omitempty"`          
+	Reactions       []Reaction    `json:"reactions,omitempty"`        
 }
 
 type Attachment struct {
@@ -328,6 +329,12 @@ type File struct {
 type MessageIcons struct {
 	Emoji   *string `json:"emoji,omitempty"`   
 	Image64 *string `json:"image_64,omitempty"`
+}
+
+type Reaction struct {
+	Name  *string  `json:"name,omitempty"` 
+	Users []string `json:"users,omitempty"`
+	Count *int64   `json:"count,omitempty"`
 }
 
 type Root struct {

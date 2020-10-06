@@ -55,6 +55,8 @@ type Channel struct {
 	PreviousNames           []string `json:"previous_names,omitempty"`            
 	LastRead                *string  `json:"last_read,omitempty"`                 
 	Priority                *int64   `json:"priority,omitempty"`                  
+	IsMoved                 *int64   `json:"is_moved,omitempty"`                  
+	InternalTeamIDS         []string `json:"internal_team_ids,omitempty"`         
 }
 
 type Purpose struct {

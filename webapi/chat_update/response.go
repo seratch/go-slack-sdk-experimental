@@ -30,14 +30,17 @@ type ChatUpdate struct {
 }
 
 type Message struct {
-	BotID      *string     `json:"bot_id,omitempty"`     
-	Type       *string     `json:"type,omitempty"`       
-	Text       *string     `json:"text,omitempty"`       
-	User       *string     `json:"user,omitempty"`       
-	Team       *string     `json:"team,omitempty"`       
-	BotProfile *BotProfile `json:"bot_profile,omitempty"`
-	Blocks     []Block     `json:"blocks,omitempty"`     
-	Edited     *Edited     `json:"edited,omitempty"`     
+	BotID        *string     `json:"bot_id,omitempty"`        
+	Type         *string     `json:"type,omitempty"`          
+	Text         *string     `json:"text,omitempty"`          
+	User         *string     `json:"user,omitempty"`          
+	Team         *string     `json:"team,omitempty"`          
+	BotProfile   *BotProfile `json:"bot_profile,omitempty"`   
+	Blocks       []Block     `json:"blocks,omitempty"`        
+	Edited       *Edited     `json:"edited,omitempty"`        
+	Files        []File      `json:"files,omitempty"`         
+	Upload       *bool       `json:"upload,omitempty"`        
+	DisplayAsBot *bool       `json:"display_as_bot,omitempty"`
 }
 
 type Block struct {
@@ -138,4 +141,37 @@ type Icons struct {
 type Edited struct {
 	User *string `json:"user,omitempty"`
 	Ts   *string `json:"ts,omitempty"`  
+}
+
+type File struct {
+	ID                 *string `json:"id,omitempty"`                  
+	Created            *int64  `json:"created,omitempty"`             
+	Timestamp          *int64  `json:"timestamp,omitempty"`           
+	Name               *string `json:"name,omitempty"`                
+	Title              *string `json:"title,omitempty"`               
+	Mimetype           *string `json:"mimetype,omitempty"`            
+	Filetype           *string `json:"filetype,omitempty"`            
+	PrettyType         *string `json:"pretty_type,omitempty"`         
+	User               *string `json:"user,omitempty"`                
+	Editable           *bool   `json:"editable,omitempty"`            
+	Size               *int64  `json:"size,omitempty"`                
+	Mode               *string `json:"mode,omitempty"`                
+	IsExternal         *bool   `json:"is_external,omitempty"`         
+	ExternalType       *string `json:"external_type,omitempty"`       
+	IsPublic           *bool   `json:"is_public,omitempty"`           
+	PublicURLShared    *bool   `json:"public_url_shared,omitempty"`   
+	DisplayAsBot       *bool   `json:"display_as_bot,omitempty"`      
+	Username           *string `json:"username,omitempty"`            
+	URLPrivate         *string `json:"url_private,omitempty"`         
+	URLPrivateDownload *string `json:"url_private_download,omitempty"`
+	Permalink          *string `json:"permalink,omitempty"`           
+	PermalinkPublic    *string `json:"permalink_public,omitempty"`    
+	EditLink           *string `json:"edit_link,omitempty"`           
+	Preview            *string `json:"preview,omitempty"`             
+	PreviewHighlight   *string `json:"preview_highlight,omitempty"`   
+	Lines              *int64  `json:"lines,omitempty"`               
+	LinesMore          *int64  `json:"lines_more,omitempty"`          
+	PreviewIsTruncated *bool   `json:"preview_is_truncated,omitempty"`
+	IsStarred          *bool   `json:"is_starred,omitempty"`          
+	HasRichPreview     *bool   `json:"has_rich_preview,omitempty"`    
 }

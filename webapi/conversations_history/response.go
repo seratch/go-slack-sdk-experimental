@@ -59,6 +59,8 @@ type Message struct {
 	Attachments     []Attachment  `json:"attachments,omitempty"`      
 	Topic           *string       `json:"topic,omitempty"`            
 	Purpose         *string       `json:"purpose,omitempty"`          
+	ClientMsgID     *string       `json:"client_msg_id,omitempty"`    
+	Reactions       []Reaction    `json:"reactions,omitempty"`        
 }
 
 type Attachment struct {
@@ -327,6 +329,12 @@ type File struct {
 type MessageIcons struct {
 	Emoji   *string `json:"emoji,omitempty"`   
 	Image64 *string `json:"image_64,omitempty"`
+}
+
+type Reaction struct {
+	Name  *string  `json:"name,omitempty"` 
+	Users []string `json:"users,omitempty"`
+	Count *int64   `json:"count,omitempty"`
 }
 
 type Root struct {
