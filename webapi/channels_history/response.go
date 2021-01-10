@@ -324,6 +324,7 @@ type File struct {
 	Lines              *int64  `json:"lines,omitempty"`               
 	LinesMore          *int64  `json:"lines_more,omitempty"`          
 	PreviewIsTruncated *bool   `json:"preview_is_truncated,omitempty"`
+	ImageExifRotation  *int64  `json:"image_exif_rotation,omitempty"` 
 }
 
 type MessageIcons struct {
@@ -352,6 +353,10 @@ type Root struct {
 	LatestReply     *string       `json:"latest_reply,omitempty"`     
 	ReplyUsers      []string      `json:"reply_users,omitempty"`      
 	Subscribed      *bool         `json:"subscribed,omitempty"`       
+	User            *string       `json:"user,omitempty"`             
+	Team            *string       `json:"team,omitempty"`             
+	BotProfile      *BotProfile   `json:"bot_profile,omitempty"`      
+	Edited          *Edited       `json:"edited,omitempty"`           
 }
 
 type ResponseMetadata struct {

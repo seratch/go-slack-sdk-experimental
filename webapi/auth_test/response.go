@@ -19,17 +19,18 @@ func (r *AuthTest) Marshal() ([]byte, error) {
 }
 
 type AuthTest struct {
-	Ok           *bool   `json:"ok,omitempty"`           
-	URL          *string `json:"url,omitempty"`          
-	Team         *string `json:"team,omitempty"`         
-	User         *string `json:"user,omitempty"`         
-	TeamID       *string `json:"team_id,omitempty"`      
-	UserID       *string `json:"user_id,omitempty"`      
-	BotID        *string `json:"bot_id,omitempty"`       
-	EnterpriseID *string `json:"enterprise_id,omitempty"`
-	Error        *string `json:"error,omitempty"`        
-	AppName      *string `json:"app_name,omitempty"`     
-	AppID        *string `json:"app_id,omitempty"`       
-	Needed       *string `json:"needed,omitempty"`       
-	Provided     *string `json:"provided,omitempty"`     
+	Ok                  *bool   `json:"ok,omitempty"`                   
+	URL                 *string `json:"url,omitempty"`                  
+	Team                *string `json:"team,omitempty"`                 
+	User                *string `json:"user,omitempty"`                 
+	TeamID              *string `json:"team_id,omitempty"`              
+	UserID              *string `json:"user_id,omitempty"`              
+	BotID               *string `json:"bot_id,omitempty"`               
+	EnterpriseID        *string `json:"enterprise_id,omitempty"`        
+	Error               *string `json:"error,omitempty"`                
+	AppName             *string `json:"app_name,omitempty"`             
+	AppID               *string `json:"app_id,omitempty"`               
+	IsEnterpriseInstall *bool   `json:"is_enterprise_install,omitempty"`
+	Needed              *string `json:"needed,omitempty"`               
+	Provided            *string `json:"provided,omitempty"`             
 }

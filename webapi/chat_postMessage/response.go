@@ -136,22 +136,22 @@ type Option struct {
 }
 
 type AttachmentBlock struct {
-	Type        *string         `json:"type,omitempty"`        
-	Elements    []PurpleElement `json:"elements,omitempty"`    
-	BlockID     *string         `json:"block_id,omitempty"`    
-	Fallback    *string         `json:"fallback,omitempty"`    
-	ImageURL    *string         `json:"image_url,omitempty"`   
-	ImageWidth  *int64          `json:"image_width,omitempty"` 
-	ImageHeight *int64          `json:"image_height,omitempty"`
-	ImageBytes  *int64          `json:"image_bytes,omitempty"` 
-	AltText     *string         `json:"alt_text,omitempty"`    
-	Title       *TextElement    `json:"title,omitempty"`       
-	Text        *TextElement    `json:"text,omitempty"`        
-	Fields      []TextElement   `json:"fields,omitempty"`      
-	Accessory   *Accessory      `json:"accessory,omitempty"`   
+	Type        *string          `json:"type,omitempty"`        
+	Elements    []PurpleElement  `json:"elements,omitempty"`    
+	BlockID     *string          `json:"block_id,omitempty"`    
+	Fallback    *string          `json:"fallback,omitempty"`    
+	ImageURL    *string          `json:"image_url,omitempty"`   
+	ImageWidth  *int64           `json:"image_width,omitempty"` 
+	ImageHeight *int64           `json:"image_height,omitempty"`
+	ImageBytes  *int64           `json:"image_bytes,omitempty"` 
+	AltText     *string          `json:"alt_text,omitempty"`    
+	Title       *TextElement     `json:"title,omitempty"`       
+	Text        *TextElement     `json:"text,omitempty"`        
+	Fields      []TextElement    `json:"fields,omitempty"`      
+	Accessory   *PurpleAccessory `json:"accessory,omitempty"`   
 }
 
-type Accessory struct {
+type PurpleAccessory struct {
 	Type        *string `json:"type,omitempty"`        
 	ImageURL    *string `json:"image_url,omitempty"`   
 	AltText     *string `json:"alt_text,omitempty"`    
@@ -235,19 +235,82 @@ type Metadata struct {
 }
 
 type MessageBlock struct {
-	Type        *string         `json:"type,omitempty"`        
-	BlockID     *string         `json:"block_id,omitempty"`    
-	Text        *TextElement    `json:"text,omitempty"`        
-	Accessory   *Accessory      `json:"accessory,omitempty"`   
-	Elements    []FluffyElement `json:"elements,omitempty"`    
-	Fallback    *string         `json:"fallback,omitempty"`    
-	ImageURL    *string         `json:"image_url,omitempty"`   
-	ImageWidth  *int64          `json:"image_width,omitempty"` 
-	ImageHeight *int64          `json:"image_height,omitempty"`
-	ImageBytes  *int64          `json:"image_bytes,omitempty"` 
-	AltText     *string         `json:"alt_text,omitempty"`    
-	Title       *TextElement    `json:"title,omitempty"`       
-	Fields      []TextElement   `json:"fields,omitempty"`      
+	Type                   *string          `json:"type,omitempty"`                    
+	BlockID                *string          `json:"block_id,omitempty"`                
+	Text                   *TextElement     `json:"text,omitempty"`                    
+	Accessory              *FluffyAccessory `json:"accessory,omitempty"`               
+	Elements               []FluffyElement  `json:"elements,omitempty"`                
+	CallID                 *string          `json:"call_id,omitempty"`                 
+	APIDecorationAvailable *bool            `json:"api_decoration_available,omitempty"`
+	Call                   *Call            `json:"call,omitempty"`                    
+	Fallback               *string          `json:"fallback,omitempty"`                
+	ImageURL               *string          `json:"image_url,omitempty"`               
+	ImageWidth             *int64           `json:"image_width,omitempty"`             
+	ImageHeight            *int64           `json:"image_height,omitempty"`            
+	ImageBytes             *int64           `json:"image_bytes,omitempty"`             
+	AltText                *string          `json:"alt_text,omitempty"`                
+	Title                  *TextElement     `json:"title,omitempty"`                   
+	Fields                 []TextElement    `json:"fields,omitempty"`                  
+}
+
+type FluffyAccessory struct {
+	Fallback    *string      `json:"fallback,omitempty"`    
+	ImageURL    *string      `json:"image_url,omitempty"`   
+	ImageWidth  *int64       `json:"image_width,omitempty"` 
+	ImageHeight *int64       `json:"image_height,omitempty"`
+	ImageBytes  *int64       `json:"image_bytes,omitempty"` 
+	Type        *string      `json:"type,omitempty"`        
+	AltText     *string      `json:"alt_text,omitempty"`    
+	ActionID    *string      `json:"action_id,omitempty"`   
+	InitialTime *string      `json:"initial_time,omitempty"`
+	Placeholder *TextElement `json:"placeholder,omitempty"` 
+}
+
+type Call struct {
+	V1               *V1     `json:"v1,omitempty"`                
+	MediaBackendType *string `json:"media_backend_type,omitempty"`
+}
+
+type V1 struct {
+	ID                 *string       `json:"id,omitempty"`                  
+	AppID              *string       `json:"app_id,omitempty"`              
+	AppIconUrls        *AppIconUrls  `json:"app_icon_urls,omitempty"`       
+	DateStart          *int64        `json:"date_start,omitempty"`          
+	ActiveParticipants []Participant `json:"active_participants,omitempty"` 
+	AllParticipants    []Participant `json:"all_participants,omitempty"`    
+	DisplayID          *string       `json:"display_id,omitempty"`          
+	JoinURL            *string       `json:"join_url,omitempty"`            
+	DesktopAppJoinURL  *string       `json:"desktop_app_join_url,omitempty"`
+	Name               *string       `json:"name,omitempty"`                
+	CreatedBy          *string       `json:"created_by,omitempty"`          
+	DateEnd            *int64        `json:"date_end,omitempty"`            
+	Channels           []string      `json:"channels,omitempty"`            
+	IsDmCall           *bool         `json:"is_dm_call,omitempty"`          
+	WasRejected        *bool         `json:"was_rejected,omitempty"`        
+	WasMissed          *bool         `json:"was_missed,omitempty"`          
+	WasAccepted        *bool         `json:"was_accepted,omitempty"`        
+	HasEnded           *bool         `json:"has_ended,omitempty"`           
+}
+
+type Participant struct {
+	SlackID     *string `json:"slack_id,omitempty"`    
+	ExternalID  *string `json:"external_id,omitempty"` 
+	AvatarURL   *string `json:"avatar_url,omitempty"`  
+	DisplayName *string `json:"display_name,omitempty"`
+}
+
+type AppIconUrls struct {
+	Image32       *string `json:"image_32,omitempty"`      
+	Image36       *string `json:"image_36,omitempty"`      
+	Image48       *string `json:"image_48,omitempty"`      
+	Image64       *string `json:"image_64,omitempty"`      
+	Image72       *string `json:"image_72,omitempty"`      
+	Image96       *string `json:"image_96,omitempty"`      
+	Image128      *string `json:"image_128,omitempty"`     
+	Image192      *string `json:"image_192,omitempty"`     
+	Image512      *string `json:"image_512,omitempty"`     
+	Image1024     *string `json:"image_1024,omitempty"`    
+	ImageOriginal *string `json:"image_original,omitempty"`
 }
 
 type FluffyElement struct {

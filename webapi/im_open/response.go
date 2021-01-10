@@ -23,6 +23,8 @@ type IMOpen struct {
 	Channel          *Channel          `json:"channel,omitempty"`          
 	Warning          *string           `json:"warning,omitempty"`          
 	ResponseMetadata *ResponseMetadata `json:"response_metadata,omitempty"`
+	NoOp             *bool             `json:"no_op,omitempty"`            
+	AlreadyOpen      *bool             `json:"already_open,omitempty"`     
 	Error            *string           `json:"error,omitempty"`            
 	Needed           *string           `json:"needed,omitempty"`           
 	Provided         *string           `json:"provided,omitempty"`         

@@ -35,6 +35,7 @@ type Team struct {
 	EnterpriseID    *string  `json:"enterprise_id,omitempty"`   
 	EnterpriseName  *string  `json:"enterprise_name,omitempty"` 
 	DefaultChannels []string `json:"default_channels,omitempty"`
+	IsVerified      *bool    `json:"is_verified,omitempty"`     
 }
 
 type Icon struct {

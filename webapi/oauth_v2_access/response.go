@@ -19,20 +19,21 @@ func (r *OauthV2Access) Marshal() ([]byte, error) {
 }
 
 type OauthV2Access struct {
-	Ok              *bool            `json:"ok,omitempty"`              
-	Warning         *string          `json:"warning,omitempty"`         
-	Error           *string          `json:"error,omitempty"`           
-	Needed          *string          `json:"needed,omitempty"`          
-	Provided        *string          `json:"provided,omitempty"`        
-	AppID           *string          `json:"app_id,omitempty"`          
-	AuthedUser      *AuthedUser      `json:"authed_user,omitempty"`     
-	Scope           *string          `json:"scope,omitempty"`           
-	TokenType       *string          `json:"token_type,omitempty"`      
-	AccessToken     *string          `json:"access_token,omitempty"`    
-	BotUserID       *string          `json:"bot_user_id,omitempty"`     
-	Team            *Enterprise      `json:"team,omitempty"`            
-	Enterprise      *Enterprise      `json:"enterprise,omitempty"`      
-	IncomingWebhook *IncomingWebhook `json:"incoming_webhook,omitempty"`
+	Ok                  *bool            `json:"ok,omitempty"`                   
+	Warning             *string          `json:"warning,omitempty"`              
+	Error               *string          `json:"error,omitempty"`                
+	Needed              *string          `json:"needed,omitempty"`               
+	Provided            *string          `json:"provided,omitempty"`             
+	AppID               *string          `json:"app_id,omitempty"`               
+	AuthedUser          *AuthedUser      `json:"authed_user,omitempty"`          
+	Scope               *string          `json:"scope,omitempty"`                
+	TokenType           *string          `json:"token_type,omitempty"`           
+	AccessToken         *string          `json:"access_token,omitempty"`         
+	BotUserID           *string          `json:"bot_user_id,omitempty"`          
+	Team                *Enterprise      `json:"team,omitempty"`                 
+	Enterprise          *Enterprise      `json:"enterprise,omitempty"`           
+	IsEnterpriseInstall *bool            `json:"is_enterprise_install,omitempty"`
+	IncomingWebhook     *IncomingWebhook `json:"incoming_webhook,omitempty"`     
 }
 
 type AuthedUser struct {

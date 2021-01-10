@@ -32,6 +32,7 @@ type Team struct {
 	Domain      *string `json:"domain,omitempty"`      
 	EmailDomain *string `json:"email_domain,omitempty"`
 	Icon        *Icon   `json:"icon,omitempty"`        
+	IsVerified  *bool   `json:"is_verified,omitempty"` 
 }
 
 type Icon struct {

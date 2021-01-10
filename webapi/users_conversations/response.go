@@ -134,6 +134,7 @@ type Root struct {
 	ThreadTs        *string      `json:"thread_ts,omitempty"`        
 	Icons           *LatestIcons `json:"icons,omitempty"`            
 	BotProfile      *BotProfile  `json:"bot_profile,omitempty"`      
+	Edited          *Edited      `json:"edited,omitempty"`           
 	ReplyCount      *int64       `json:"reply_count,omitempty"`      
 	ReplyUsersCount *int64       `json:"reply_users_count,omitempty"`
 	LatestReply     *string      `json:"latest_reply,omitempty"`     
