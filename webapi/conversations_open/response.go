@@ -19,11 +19,13 @@ func (r *ConversationsOpen) Marshal() ([]byte, error) {
 }
 
 type ConversationsOpen struct {
-	Ok       *bool    `json:"ok,omitempty"`      
-	Channel  *Channel `json:"channel,omitempty"` 
-	Error    *string  `json:"error,omitempty"`   
-	Needed   *string  `json:"needed,omitempty"`  
-	Provided *string  `json:"provided,omitempty"`
+	Ok          *bool    `json:"ok,omitempty"`          
+	Channel     *Channel `json:"channel,omitempty"`     
+	NoOp        *bool    `json:"no_op,omitempty"`       
+	AlreadyOpen *bool    `json:"already_open,omitempty"`
+	Error       *string  `json:"error,omitempty"`       
+	Needed      *string  `json:"needed,omitempty"`      
+	Provided    *string  `json:"provided,omitempty"`    
 }
 
 type Channel struct {

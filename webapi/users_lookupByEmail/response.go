@@ -46,6 +46,7 @@ type User struct {
 	IsAppUser         *bool    `json:"is_app_user,omitempty"`        
 	Updated           *int64   `json:"updated,omitempty"`            
 	Has2Fa            *bool    `json:"has_2fa,omitempty"`            
+	IsEmailConfirmed  *bool    `json:"is_email_confirmed,omitempty"` 
 }
 
 type Profile struct {

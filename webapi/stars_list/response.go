@@ -28,12 +28,12 @@ type StarsList struct {
 }
 
 type Item struct {
-	Type       *string  `json:"type,omitempty"`       
-	Channel    *string  `json:"channel,omitempty"`    
-	DateCreate *int64   `json:"date_create,omitempty"`
-	Message    *Message `json:"message,omitempty"`    
-	File       *File    `json:"file,omitempty"`       
-	Comment    *Comment `json:"comment,omitempty"`    
+	Type       *string   `json:"type,omitempty"`       
+	Channel    *string   `json:"channel,omitempty"`    
+	DateCreate *int64    `json:"date_create,omitempty"`
+	Message    *Message  `json:"message,omitempty"`    
+	File       *ItemFile `json:"file,omitempty"`       
+	Comment    *Comment  `json:"comment,omitempty"`    
 }
 
 type Comment struct {
@@ -47,7 +47,7 @@ type Comment struct {
 	IsStarred *bool   `json:"is_starred,omitempty"`
 }
 
-type File struct {
+type ItemFile struct {
 	ID                 *string  `json:"id,omitempty"`                  
 	Created            *int64   `json:"created,omitempty"`             
 	Timestamp          *int64   `json:"timestamp,omitempty"`           
@@ -127,27 +127,33 @@ type Public struct {
 }
 
 type Message struct {
-	BotID           *string      `json:"bot_id,omitempty"`           
-	Type            *string      `json:"type,omitempty"`             
-	Text            *string      `json:"text,omitempty"`             
-	User            *string      `json:"user,omitempty"`             
-	Ts              *string      `json:"ts,omitempty"`               
-	Team            *string      `json:"team,omitempty"`             
-	Attachments     []Attachment `json:"attachments,omitempty"`      
-	IsStarred       *bool        `json:"is_starred,omitempty"`       
-	Permalink       *string      `json:"permalink,omitempty"`        
-	Subtype         *string      `json:"subtype,omitempty"`          
-	Username        *string      `json:"username,omitempty"`         
-	Blocks          []Block      `json:"blocks,omitempty"`           
-	ClientMsgID     *string      `json:"client_msg_id,omitempty"`    
-	ThreadTs        *string      `json:"thread_ts,omitempty"`        
-	ReplyCount      *int64       `json:"reply_count,omitempty"`      
-	ReplyUsersCount *int64       `json:"reply_users_count,omitempty"`
-	LatestReply     *string      `json:"latest_reply,omitempty"`     
-	ReplyUsers      []string     `json:"reply_users,omitempty"`      
-	Subscribed      *bool        `json:"subscribed,omitempty"`       
-	LastRead        *string      `json:"last_read,omitempty"`        
-	Reactions       []Reaction   `json:"reactions,omitempty"`        
+	BotID           *string       `json:"bot_id,omitempty"`           
+	Type            *string       `json:"type,omitempty"`             
+	Text            *string       `json:"text,omitempty"`             
+	User            *string       `json:"user,omitempty"`             
+	Ts              *string       `json:"ts,omitempty"`               
+	Team            *string       `json:"team,omitempty"`             
+	Attachments     []Attachment  `json:"attachments,omitempty"`      
+	IsStarred       *bool         `json:"is_starred,omitempty"`       
+	Permalink       *string       `json:"permalink,omitempty"`        
+	Subtype         *string       `json:"subtype,omitempty"`          
+	Username        *string       `json:"username,omitempty"`         
+	Blocks          []Block       `json:"blocks,omitempty"`           
+	ClientMsgID     *string       `json:"client_msg_id,omitempty"`    
+	ThreadTs        *string       `json:"thread_ts,omitempty"`        
+	ReplyCount      *int64        `json:"reply_count,omitempty"`      
+	ReplyUsersCount *int64        `json:"reply_users_count,omitempty"`
+	LatestReply     *string       `json:"latest_reply,omitempty"`     
+	ReplyUsers      []string      `json:"reply_users,omitempty"`      
+	Subscribed      *bool         `json:"subscribed,omitempty"`       
+	LastRead        *string       `json:"last_read,omitempty"`        
+	Reactions       []Reaction    `json:"reactions,omitempty"`        
+	BotProfile      *BotProfile   `json:"bot_profile,omitempty"`      
+	Edited          *Edited       `json:"edited,omitempty"`           
+	Files           []FileElement `json:"files,omitempty"`            
+	Upload          *bool         `json:"upload,omitempty"`           
+	DisplayAsBot    *bool         `json:"display_as_bot,omitempty"`   
+	IsLocked        *bool         `json:"is_locked,omitempty"`        
 }
 
 type Attachment struct {
@@ -331,6 +337,60 @@ type InitialOption struct {
 	Value       *string `json:"value,omitempty"`      
 	Description *Text   `json:"description,omitempty"`
 	URL         *string `json:"url,omitempty"`        
+}
+
+type BotProfile struct {
+	ID      *string `json:"id,omitempty"`     
+	Deleted *bool   `json:"deleted,omitempty"`
+	Name    *string `json:"name,omitempty"`   
+	Updated *int64  `json:"updated,omitempty"`
+	AppID   *string `json:"app_id,omitempty"` 
+	Icons   *Icons  `json:"icons,omitempty"`  
+	TeamID  *string `json:"team_id,omitempty"`
+}
+
+type Icons struct {
+	Image36 *string `json:"image_36,omitempty"`
+	Image48 *string `json:"image_48,omitempty"`
+	Image72 *string `json:"image_72,omitempty"`
+}
+
+type Edited struct {
+	User *string `json:"user,omitempty"`
+	Ts   *string `json:"ts,omitempty"`  
+}
+
+type FileElement struct {
+	ID                 *string `json:"id,omitempty"`                  
+	Created            *int64  `json:"created,omitempty"`             
+	Timestamp          *int64  `json:"timestamp,omitempty"`           
+	Name               *string `json:"name,omitempty"`                
+	Title              *string `json:"title,omitempty"`               
+	Mimetype           *string `json:"mimetype,omitempty"`            
+	Filetype           *string `json:"filetype,omitempty"`            
+	PrettyType         *string `json:"pretty_type,omitempty"`         
+	User               *string `json:"user,omitempty"`                
+	Editable           *bool   `json:"editable,omitempty"`            
+	Size               *int64  `json:"size,omitempty"`                
+	Mode               *string `json:"mode,omitempty"`                
+	IsExternal         *bool   `json:"is_external,omitempty"`         
+	ExternalType       *string `json:"external_type,omitempty"`       
+	IsPublic           *bool   `json:"is_public,omitempty"`           
+	PublicURLShared    *bool   `json:"public_url_shared,omitempty"`   
+	DisplayAsBot       *bool   `json:"display_as_bot,omitempty"`      
+	Username           *string `json:"username,omitempty"`            
+	URLPrivate         *string `json:"url_private,omitempty"`         
+	URLPrivateDownload *string `json:"url_private_download,omitempty"`
+	Permalink          *string `json:"permalink,omitempty"`           
+	PermalinkPublic    *string `json:"permalink_public,omitempty"`    
+	EditLink           *string `json:"edit_link,omitempty"`           
+	Preview            *string `json:"preview,omitempty"`             
+	PreviewHighlight   *string `json:"preview_highlight,omitempty"`   
+	Lines              *int64  `json:"lines,omitempty"`               
+	LinesMore          *int64  `json:"lines_more,omitempty"`          
+	PreviewIsTruncated *bool   `json:"preview_is_truncated,omitempty"`
+	IsStarred          *bool   `json:"is_starred,omitempty"`          
+	HasRichPreview     *bool   `json:"has_rich_preview,omitempty"`    
 }
 
 type Reaction struct {

@@ -46,6 +46,7 @@ type Message struct {
 	ReplyUsers      []string    `json:"reply_users,omitempty"`      
 	Subscribed      *bool       `json:"subscribed,omitempty"`       
 	LastRead        *string     `json:"last_read,omitempty"`        
+	IsStarred       *bool       `json:"is_starred,omitempty"`       
 }
 
 type BotProfile struct {

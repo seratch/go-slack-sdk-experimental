@@ -41,6 +41,8 @@ type Group struct {
 	Topic          *Purpose `json:"topic,omitempty"`          
 	Purpose        *Purpose `json:"purpose,omitempty"`        
 	Priority       *int64   `json:"priority,omitempty"`       
+	IsOpen         *bool    `json:"is_open,omitempty"`        
+	LastRead       *string  `json:"last_read,omitempty"`      
 }
 
 type Purpose struct {

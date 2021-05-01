@@ -43,6 +43,7 @@ type Message struct {
 	ReplyUsers      []string    `json:"reply_users,omitempty"`      
 	Subscribed      *bool       `json:"subscribed,omitempty"`       
 	ParentUserID    *string     `json:"parent_user_id,omitempty"`   
+	IsLocked        *bool       `json:"is_locked,omitempty"`        
 }
 
 type BotProfile struct {

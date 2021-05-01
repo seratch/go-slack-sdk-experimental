@@ -28,7 +28,8 @@ type AdminUsersList struct {
 }
 
 type ResponseMetadata struct {
-	NextCursor *string `json:"next_cursor,omitempty"`
+	NextCursor *string  `json:"next_cursor,omitempty"`
+	Messages   []string `json:"messages,omitempty"`   
 }
 
 type User struct {

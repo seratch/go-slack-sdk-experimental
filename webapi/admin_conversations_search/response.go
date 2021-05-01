@@ -50,4 +50,5 @@ type Conversation struct {
 	IsPendingEXTShared        *bool    `json:"is_pending_ext_shared,omitempty"`        
 	ConnectedTeamIDS          []string `json:"connected_team_ids,omitempty"`           
 	ConversationHostID        *string  `json:"conversation_host_id,omitempty"`         
+	ChannelEmailAddresses     []string `json:"channel_email_addresses,omitempty"`      
 }

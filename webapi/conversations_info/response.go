@@ -64,6 +64,7 @@ type Channel struct {
 	IsGlobalShared          *bool    `json:"is_global_shared,omitempty"`          
 	IsOrgDefault            *bool    `json:"is_org_default,omitempty"`            
 	IsOrgMandatory          *bool    `json:"is_org_mandatory,omitempty"`          
+	ConnectedLimitedTeamIDS []string `json:"connected_limited_team_ids,omitempty"`
 }
 
 type Purpose struct {

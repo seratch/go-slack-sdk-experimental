@@ -54,6 +54,11 @@ type Message struct {
 	LatestReply     *string     `json:"latest_reply,omitempty"`     
 	ReplyUsers      []string    `json:"reply_users,omitempty"`      
 	Subscribed      *bool       `json:"subscribed,omitempty"`       
+	Subtype         *string     `json:"subtype,omitempty"`          
+	Username        *string     `json:"username,omitempty"`         
+	ParentUserID    *string     `json:"parent_user_id,omitempty"`   
+	IsLocked        *bool       `json:"is_locked,omitempty"`        
+	Inviter         *string     `json:"inviter,omitempty"`          
 }
 
 type Block struct {

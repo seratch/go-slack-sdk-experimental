@@ -157,6 +157,8 @@ type MessagesMatch struct {
 	Previous2   *Previous2        `json:"previous_2,omitempty"`  
 	Blocks      []Block           `json:"blocks,omitempty"`      
 	Attachments []MatchAttachment `json:"attachments,omitempty"` 
+	IsMpim      *bool             `json:"is_mpim,omitempty"`     
+	Score       *int64            `json:"score,omitempty"`       
 }
 
 type MatchAttachment struct {

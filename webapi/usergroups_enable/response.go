@@ -27,23 +27,24 @@ type UsergroupsEnable struct {
 }
 
 type Usergroup struct {
-	ID                  *string `json:"id,omitempty"`                   
-	TeamID              *string `json:"team_id,omitempty"`              
-	IsUsergroup         *bool   `json:"is_usergroup,omitempty"`         
-	IsSubteam           *bool   `json:"is_subteam,omitempty"`           
-	Name                *string `json:"name,omitempty"`                 
-	Description         *string `json:"description,omitempty"`          
-	Handle              *string `json:"handle,omitempty"`               
-	IsExternal          *bool   `json:"is_external,omitempty"`          
-	DateCreate          *int64  `json:"date_create,omitempty"`          
-	DateUpdate          *int64  `json:"date_update,omitempty"`          
-	DateDelete          *int64  `json:"date_delete,omitempty"`          
-	AutoProvision       *bool   `json:"auto_provision,omitempty"`       
-	EnterpriseSubteamID *string `json:"enterprise_subteam_id,omitempty"`
-	CreatedBy           *string `json:"created_by,omitempty"`           
-	UpdatedBy           *string `json:"updated_by,omitempty"`           
-	Prefs               *Prefs  `json:"prefs,omitempty"`                
-	ChannelCount        *int64  `json:"channel_count,omitempty"`        
+	ID                  *string  `json:"id,omitempty"`                   
+	TeamID              *string  `json:"team_id,omitempty"`              
+	IsUsergroup         *bool    `json:"is_usergroup,omitempty"`         
+	IsSubteam           *bool    `json:"is_subteam,omitempty"`           
+	Name                *string  `json:"name,omitempty"`                 
+	Description         *string  `json:"description,omitempty"`          
+	Handle              *string  `json:"handle,omitempty"`               
+	IsExternal          *bool    `json:"is_external,omitempty"`          
+	DateCreate          *int64   `json:"date_create,omitempty"`          
+	DateUpdate          *int64   `json:"date_update,omitempty"`          
+	DateDelete          *int64   `json:"date_delete,omitempty"`          
+	AutoProvision       *bool    `json:"auto_provision,omitempty"`       
+	EnterpriseSubteamID *string  `json:"enterprise_subteam_id,omitempty"`
+	CreatedBy           *string  `json:"created_by,omitempty"`           
+	UpdatedBy           *string  `json:"updated_by,omitempty"`           
+	Prefs               *Prefs   `json:"prefs,omitempty"`                
+	ChannelCount        *int64   `json:"channel_count,omitempty"`        
+	Users               []string `json:"users,omitempty"`                
 }
 
 type Prefs struct {

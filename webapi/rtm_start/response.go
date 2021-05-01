@@ -180,6 +180,7 @@ type Root struct {
 	ThreadTs        *string      `json:"thread_ts,omitempty"`        
 	Icons           *LatestIcons `json:"icons,omitempty"`            
 	BotProfile      *Bot         `json:"bot_profile,omitempty"`      
+	Edited          *Edited      `json:"edited,omitempty"`           
 	ReplyCount      *int64       `json:"reply_count,omitempty"`      
 	ReplyUsersCount *int64       `json:"reply_users_count,omitempty"`
 	LatestReply     *string      `json:"latest_reply,omitempty"`     
@@ -585,6 +586,18 @@ type SelfPrefs struct {
 	HuddlesMuteByDefault                           *bool           `json:"huddles_mute_by_default,omitempty"`                             
 	ShowSidebarAvatars                             *bool           `json:"show_sidebar_avatars,omitempty"`                                
 	SeenConnectSectionCoachmark                    *bool           `json:"seen_connect_section_coachmark,omitempty"`                      
+	HasDismissedGoogleDirectoryCoachmark           *bool           `json:"has_dismissed_google_directory_coachmark,omitempty"`            
+	HuddlesGlobalMute                              *bool           `json:"huddles_global_mute,omitempty"`                                 
+	HuddleSurveyLastSeen                           *string         `json:"huddle_survey_last_seen,omitempty"`                             
+	HuddlesMiniPanel                               *bool           `json:"huddles_mini_panel,omitempty"`                                  
+	SidebarPrefDismissedTip                        *bool           `json:"sidebar_pref_dismissed_tip,omitempty"`                          
+	EnableMediaCaptions                            *bool           `json:"enable_media_captions,omitempty"`                               
+	SetA11YPrefsNewUser                            *bool           `json:"set_a11y_prefs_new_user,omitempty"`                             
+	SeenScPageBanner                               *bool           `json:"seen_sc_page_banner,omitempty"`                                 
+	SeenScMenuCoachmark                            *bool           `json:"seen_sc_menu_coachmark,omitempty"`                              
+	SeenScPage                                     *bool           `json:"seen_sc_page,omitempty"`                                        
+	NotificationCenterFilters                      *string         `json:"notification_center_filters,omitempty"`                         
+	MediaPlaybackSpeed                             *int64          `json:"media_playback_speed,omitempty"`                                
 }
 
 type LocalesEnabled struct {
@@ -808,6 +821,8 @@ type TeamPrefs struct {
 	SlackConnectDmOnlyVerifiedOrgs              *bool                          `json:"slack_connect_dm_only_verified_orgs,omitempty"`               
 	JoinerNotificationsEnabled                  *bool                          `json:"joiner_notifications_enabled,omitempty"`                      
 	SlackConnectAllowedWorkspaces               *SlackConnectAllowedWorkspaces `json:"slack_connect_allowed_workspaces,omitempty"`                  
+	ShowLegacyPaidBenefitsPage                  *bool                          `json:"show_legacy_paid_benefits_page,omitempty"`                    
+	EnableDomainAllowlistForCea                 *bool                          `json:"enable_domain_allowlist_for_cea,omitempty"`                   
 }
 
 type CallsApps struct {

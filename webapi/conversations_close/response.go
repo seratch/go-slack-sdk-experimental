@@ -19,8 +19,10 @@ func (r *ConversationsClose) Marshal() ([]byte, error) {
 }
 
 type ConversationsClose struct {
-	Ok       *bool   `json:"ok,omitempty"`      
-	Error    *string `json:"error,omitempty"`   
-	Needed   *string `json:"needed,omitempty"`  
-	Provided *string `json:"provided,omitempty"`
+	Ok            *bool   `json:"ok,omitempty"`            
+	AlreadyClosed *bool   `json:"already_closed,omitempty"`
+	NoOp          *bool   `json:"no_op,omitempty"`         
+	Error         *string `json:"error,omitempty"`         
+	Needed        *string `json:"needed,omitempty"`        
+	Provided      *string `json:"provided,omitempty"`      
 }
