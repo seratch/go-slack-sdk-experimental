@@ -20,17 +20,15 @@ func (r *MigrationExchange) Marshal() ([]byte, error) {
 
 type MigrationExchange struct {
 	Ok             *bool      `json:"ok,omitempty"`              
+	Warning        *string    `json:"warning,omitempty"`         
 	Error          *string    `json:"error,omitempty"`           
+	Needed         *string    `json:"needed,omitempty"`          
+	Provided       *string    `json:"provided,omitempty"`        
 	TeamID         *string    `json:"team_id,omitempty"`         
 	EnterpriseID   *string    `json:"enterprise_id,omitempty"`   
-	UserIDMap      *UserIDMap `json:"user_id_map,omitempty"`     
 	InvalidUserIDS []string   `json:"invalid_user_ids,omitempty"`
+	UserIDMap      *UserIDMap `json:"user_id_map,omitempty"`     
 }
 
 type UserIDMap struct {
-	U06Ubsun5 *string `json:"U06UBSUN5,omitempty"`
-	U06Ueb62U *string `json:"U06UEB62U,omitempty"`
-	U06Ubsvb3 *string `json:"U06UBSVB3,omitempty"`
-	U06Ubsvdx *string `json:"U06UBSVDX,omitempty"`
-	W06Uaz65Q *string `json:"W06UAZ65Q,omitempty"`
 }

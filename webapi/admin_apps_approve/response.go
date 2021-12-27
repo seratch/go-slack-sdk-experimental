@@ -20,6 +20,7 @@ func (r *AdminAppsApprove) Marshal() ([]byte, error) {
 
 type AdminAppsApprove struct {
 	Ok       *bool   `json:"ok,omitempty"`      
+	Warning  *string `json:"warning,omitempty"` 
 	Error    *string `json:"error,omitempty"`   
 	Needed   *string `json:"needed,omitempty"`  
 	Provided *string `json:"provided,omitempty"`

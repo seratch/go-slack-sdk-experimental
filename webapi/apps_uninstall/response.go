@@ -19,8 +19,13 @@ func (r *AppsUninstall) Marshal() ([]byte, error) {
 }
 
 type AppsUninstall struct {
-	Ok       *bool   `json:"ok,omitempty"`      
-	Error    *string `json:"error,omitempty"`   
-	Needed   *string `json:"needed,omitempty"`  
-	Provided *string `json:"provided,omitempty"`
+	Ok               *bool             `json:"ok,omitempty"`               
+	Error            *string           `json:"error,omitempty"`            
+	ResponseMetadata *ResponseMetadata `json:"response_metadata,omitempty"`
+	Needed           *string           `json:"needed,omitempty"`           
+	Provided         *string           `json:"provided,omitempty"`         
+}
+
+type ResponseMetadata struct {
+	Messages []string `json:"messages,omitempty"`
 }

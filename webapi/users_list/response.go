@@ -22,37 +22,39 @@ type UsersList struct {
 	Ok               *bool             `json:"ok,omitempty"`               
 	Members          []Member          `json:"members,omitempty"`          
 	CacheTs          *int64            `json:"cache_ts,omitempty"`         
-	ResponseMetadata *ResponseMetadata `json:"response_metadata,omitempty"`
 	Offset           *string           `json:"offset,omitempty"`           
+	ResponseMetadata *ResponseMetadata `json:"response_metadata,omitempty"`
 	Error            *string           `json:"error,omitempty"`            
 	Needed           *string           `json:"needed,omitempty"`           
 	Provided         *string           `json:"provided,omitempty"`         
 }
 
 type Member struct {
-	ID                *string         `json:"id,omitempty"`                 
-	TeamID            *string         `json:"team_id,omitempty"`            
-	Name              *string         `json:"name,omitempty"`               
-	Deleted           *bool           `json:"deleted,omitempty"`            
-	Color             *string         `json:"color,omitempty"`              
-	RealName          *string         `json:"real_name,omitempty"`          
-	Tz                *string         `json:"tz,omitempty"`                 
-	TzLabel           *string         `json:"tz_label,omitempty"`           
-	TzOffset          *int64          `json:"tz_offset,omitempty"`          
-	Profile           *Profile        `json:"profile,omitempty"`            
-	IsAdmin           *bool           `json:"is_admin,omitempty"`           
-	IsOwner           *bool           `json:"is_owner,omitempty"`           
-	IsPrimaryOwner    *bool           `json:"is_primary_owner,omitempty"`   
-	IsRestricted      *bool           `json:"is_restricted,omitempty"`      
-	IsUltraRestricted *bool           `json:"is_ultra_restricted,omitempty"`
-	IsBot             *bool           `json:"is_bot,omitempty"`             
-	IsAppUser         *bool           `json:"is_app_user,omitempty"`        
-	Updated           *int64          `json:"updated,omitempty"`            
-	Has2Fa            *bool           `json:"has_2fa,omitempty"`            
-	IsWorkflowBot     *bool           `json:"is_workflow_bot,omitempty"`    
-	EnterpriseUser    *EnterpriseUser `json:"enterprise_user,omitempty"`    
-	IsInvitedUser     *bool           `json:"is_invited_user,omitempty"`    
-	Locale            *string         `json:"locale,omitempty"`             
+	ID                     *string         `json:"id,omitempty"`                        
+	TeamID                 *string         `json:"team_id,omitempty"`                   
+	Name                   *string         `json:"name,omitempty"`                      
+	Deleted                *bool           `json:"deleted,omitempty"`                   
+	Color                  *string         `json:"color,omitempty"`                     
+	RealName               *string         `json:"real_name,omitempty"`                 
+	Tz                     *string         `json:"tz,omitempty"`                        
+	TzLabel                *string         `json:"tz_label,omitempty"`                  
+	TzOffset               *int64          `json:"tz_offset,omitempty"`                 
+	Profile                *Profile        `json:"profile,omitempty"`                   
+	IsAdmin                *bool           `json:"is_admin,omitempty"`                  
+	IsOwner                *bool           `json:"is_owner,omitempty"`                  
+	IsPrimaryOwner         *bool           `json:"is_primary_owner,omitempty"`          
+	IsRestricted           *bool           `json:"is_restricted,omitempty"`             
+	IsUltraRestricted      *bool           `json:"is_ultra_restricted,omitempty"`       
+	IsBot                  *bool           `json:"is_bot,omitempty"`                    
+	IsAppUser              *bool           `json:"is_app_user,omitempty"`               
+	Updated                *int64          `json:"updated,omitempty"`                   
+	IsEmailConfirmed       *bool           `json:"is_email_confirmed,omitempty"`        
+	WhoCanShareContactCard *string         `json:"who_can_share_contact_card,omitempty"`
+	IsWorkflowBot          *bool           `json:"is_workflow_bot,omitempty"`           
+	Has2Fa                 *bool           `json:"has_2fa,omitempty"`                   
+	Locale                 *string         `json:"locale,omitempty"`                    
+	EnterpriseUser         *EnterpriseUser `json:"enterprise_user,omitempty"`           
+	IsInvitedUser          *bool           `json:"is_invited_user,omitempty"`           
 }
 
 type EnterpriseUser struct {
@@ -65,36 +67,44 @@ type EnterpriseUser struct {
 }
 
 type Profile struct {
-	Title                 *string `json:"title,omitempty"`                  
-	Phone                 *string `json:"phone,omitempty"`                  
-	Skype                 *string `json:"skype,omitempty"`                  
-	RealName              *string `json:"real_name,omitempty"`              
-	RealNameNormalized    *string `json:"real_name_normalized,omitempty"`   
-	DisplayName           *string `json:"display_name,omitempty"`           
-	DisplayNameNormalized *string `json:"display_name_normalized,omitempty"`
-	StatusText            *string `json:"status_text,omitempty"`            
-	StatusEmoji           *string `json:"status_emoji,omitempty"`           
-	StatusExpiration      *int64  `json:"status_expiration,omitempty"`      
-	AvatarHash            *string `json:"avatar_hash,omitempty"`            
-	ImageOriginal         *string `json:"image_original,omitempty"`         
-	IsCustomImage         *bool   `json:"is_custom_image,omitempty"`        
-	Email                 *string `json:"email,omitempty"`                  
-	FirstName             *string `json:"first_name,omitempty"`             
-	LastName              *string `json:"last_name,omitempty"`              
-	Image24               *string `json:"image_24,omitempty"`               
-	Image32               *string `json:"image_32,omitempty"`               
-	Image48               *string `json:"image_48,omitempty"`               
-	Image72               *string `json:"image_72,omitempty"`               
-	Image192              *string `json:"image_192,omitempty"`              
-	Image512              *string `json:"image_512,omitempty"`              
-	Image1024             *string `json:"image_1024,omitempty"`             
-	StatusTextCanonical   *string `json:"status_text_canonical,omitempty"`  
-	Team                  *string `json:"team,omitempty"`                   
-	APIAppID              *string `json:"api_app_id,omitempty"`             
-	BotID                 *string `json:"bot_id,omitempty"`                 
-	AlwaysActive          *bool   `json:"always_active,omitempty"`          
-	GuestInvitedBy        *string `json:"guest_invited_by,omitempty"`       
-	GuestExpirationTs     *int64  `json:"guest_expiration_ts,omitempty"`    
+	Title                  *string                  `json:"title,omitempty"`                    
+	Phone                  *string                  `json:"phone,omitempty"`                    
+	Skype                  *string                  `json:"skype,omitempty"`                    
+	RealName               *string                  `json:"real_name,omitempty"`                
+	RealNameNormalized     *string                  `json:"real_name_normalized,omitempty"`     
+	DisplayName            *string                  `json:"display_name,omitempty"`             
+	DisplayNameNormalized  *string                  `json:"display_name_normalized,omitempty"`  
+	StatusText             *string                  `json:"status_text,omitempty"`              
+	StatusEmoji            *string                  `json:"status_emoji,omitempty"`             
+	StatusEmojiDisplayInfo []StatusEmojiDisplayInfo `json:"status_emoji_display_info,omitempty"`
+	StatusExpiration       *int64                   `json:"status_expiration,omitempty"`        
+	AvatarHash             *string                  `json:"avatar_hash,omitempty"`              
+	ImageOriginal          *string                  `json:"image_original,omitempty"`           
+	IsCustomImage          *bool                    `json:"is_custom_image,omitempty"`          
+	Email                  *string                  `json:"email,omitempty"`                    
+	Pronouns               *string                  `json:"pronouns,omitempty"`                 
+	FirstName              *string                  `json:"first_name,omitempty"`               
+	LastName               *string                  `json:"last_name,omitempty"`                
+	Image24                *string                  `json:"image_24,omitempty"`                 
+	Image32                *string                  `json:"image_32,omitempty"`                 
+	Image48                *string                  `json:"image_48,omitempty"`                 
+	Image72                *string                  `json:"image_72,omitempty"`                 
+	Image192               *string                  `json:"image_192,omitempty"`                
+	Image512               *string                  `json:"image_512,omitempty"`                
+	Image1024              *string                  `json:"image_1024,omitempty"`               
+	StatusTextCanonical    *string                  `json:"status_text_canonical,omitempty"`    
+	Team                   *string                  `json:"team,omitempty"`                     
+	APIAppID               *string                  `json:"api_app_id,omitempty"`               
+	BotID                  *string                  `json:"bot_id,omitempty"`                   
+	AlwaysActive           *bool                    `json:"always_active,omitempty"`            
+	GuestInvitedBy         *string                  `json:"guest_invited_by,omitempty"`         
+	GuestExpirationTs      *int64                   `json:"guest_expiration_ts,omitempty"`      
+}
+
+type StatusEmojiDisplayInfo struct {
+	EmojiName    *string `json:"emoji_name,omitempty"`   
+	DisplayAlias *string `json:"display_alias,omitempty"`
+	DisplayURL   *string `json:"display_url,omitempty"`  
 }
 
 type ResponseMetadata struct {

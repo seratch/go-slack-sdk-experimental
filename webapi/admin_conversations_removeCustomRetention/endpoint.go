@@ -1,0 +1,2 @@
+package admin_conversations_removeCustomRetention
+const ApiMethod string = "admin.conversations.removeCustomRetention"

@@ -19,11 +19,12 @@ func (r *RemindersAdd) Marshal() ([]byte, error) {
 }
 
 type RemindersAdd struct {
-	Ok       *bool     `json:"ok,omitempty"`      
-	Reminder *Reminder `json:"reminder,omitempty"`
-	Error    *string   `json:"error,omitempty"`   
-	Needed   *string   `json:"needed,omitempty"`  
-	Provided *string   `json:"provided,omitempty"`
+	Ok               *bool             `json:"ok,omitempty"`               
+	Reminder         *Reminder         `json:"reminder,omitempty"`         
+	Error            *string           `json:"error,omitempty"`            
+	ResponseMetadata *ResponseMetadata `json:"response_metadata,omitempty"`
+	Needed           *string           `json:"needed,omitempty"`           
+	Provided         *string           `json:"provided,omitempty"`         
 }
 
 type Reminder struct {
@@ -34,4 +35,8 @@ type Reminder struct {
 	Recurring  *bool   `json:"recurring,omitempty"`  
 	Time       *int64  `json:"time,omitempty"`       
 	CompleteTs *int64  `json:"complete_ts,omitempty"`
+}
+
+type ResponseMetadata struct {
+	Messages []string `json:"messages,omitempty"`
 }

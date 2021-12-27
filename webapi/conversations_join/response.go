@@ -57,6 +57,7 @@ type Channel struct {
 	Priority                *int64   `json:"priority,omitempty"`                  
 	IsMoved                 *int64   `json:"is_moved,omitempty"`                  
 	InternalTeamIDS         []string `json:"internal_team_ids,omitempty"`         
+	IsStarred               *bool    `json:"is_starred,omitempty"`                
 }
 
 type Purpose struct {

@@ -1,0 +1,2 @@
+package admin_conversations_getCustomRetention
+const ApiMethod string = "admin.conversations.getCustomRetention"

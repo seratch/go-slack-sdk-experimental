@@ -19,11 +19,12 @@ func (r *DNDSetSnooze) Marshal() ([]byte, error) {
 }
 
 type DNDSetSnooze struct {
-	Ok              *bool   `json:"ok,omitempty"`              
-	Error           *string `json:"error,omitempty"`           
-	SnoozeEnabled   *bool   `json:"snooze_enabled,omitempty"`  
-	SnoozeEndtime   *int64  `json:"snooze_endtime,omitempty"`  
-	SnoozeRemaining *int64  `json:"snooze_remaining,omitempty"`
-	Needed          *string `json:"needed,omitempty"`          
-	Provided        *string `json:"provided,omitempty"`        
+	Ok                 *bool   `json:"ok,omitempty"`                  
+	Error              *string `json:"error,omitempty"`               
+	SnoozeEnabled      *bool   `json:"snooze_enabled,omitempty"`      
+	SnoozeEndtime      *int64  `json:"snooze_endtime,omitempty"`      
+	SnoozeRemaining    *int64  `json:"snooze_remaining,omitempty"`    
+	SnoozeIsIndefinite *bool   `json:"snooze_is_indefinite,omitempty"`
+	Needed             *string `json:"needed,omitempty"`              
+	Provided           *string `json:"provided,omitempty"`            
 }

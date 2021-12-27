@@ -32,6 +32,7 @@ type ActiveSession struct {
 	SessionID *int64   `json:"session_id,omitempty"`
 	TeamID    *string  `json:"team_id,omitempty"`   
 	Created   *Created `json:"created,omitempty"`   
+	Recent    *Created `json:"recent,omitempty"`    
 }
 
 type Created struct {

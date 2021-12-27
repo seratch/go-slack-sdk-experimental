@@ -59,6 +59,9 @@ type Channel struct {
 	SharedTeamIDS           []string `json:"shared_team_ids,omitempty"`           
 	InternalTeamIDS         []string `json:"internal_team_ids,omitempty"`         
 	PreviousNames           []string `json:"previous_names,omitempty"`            
+	User                    *string  `json:"user,omitempty"`                      
+	IsUserDeleted           *bool    `json:"is_user_deleted,omitempty"`           
+	Priority                *int64   `json:"priority,omitempty"`                  
 }
 
 type Purpose struct {

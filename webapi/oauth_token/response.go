@@ -19,8 +19,9 @@ func (r *OauthToken) Marshal() ([]byte, error) {
 }
 
 type OauthToken struct {
-	Ok       *bool   `json:"ok,omitempty"`      
-	Error    *string `json:"error,omitempty"`   
-	Needed   *string `json:"needed,omitempty"`  
-	Provided *string `json:"provided,omitempty"`
+	Ok        *bool   `json:"ok,omitempty"`        
+	Error     *string `json:"error,omitempty"`     
+	ReqMethod *string `json:"req_method,omitempty"`
+	Needed    *string `json:"needed,omitempty"`    
+	Provided  *string `json:"provided,omitempty"`  
 }

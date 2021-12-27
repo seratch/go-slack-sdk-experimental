@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/iancoleman/strcase"
 	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"github.com/iancoleman/strcase"
 )
 
 func main() {
@@ -31,7 +32,11 @@ func main() {
 		cmd := exec.Command(
 			"bash", "-c",
 			fmt.Sprintf("quicktype --all-properties-optional --package %s -t %s", packageName, name))
-		stdin, _ := cmd.StdinPipe()
+		stdin, cmdError := cmd.StdinPipe()
+		if cmdError != nil {
+			log.Fatal(cmdError)
+			return
+		}
 		stdin.Write(json)
 		stdin.Close()
 		stdout, _ := cmd.StdoutPipe()

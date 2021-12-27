@@ -20,11 +20,12 @@ func (r *AdminAppsApprovedList) Marshal() ([]byte, error) {
 
 type AdminAppsApprovedList struct {
 	Ok               *bool             `json:"ok,omitempty"`               
+	Warning          *string           `json:"warning,omitempty"`          
 	Error            *string           `json:"error,omitempty"`            
-	ApprovedApps     []ApprovedApp     `json:"approved_apps,omitempty"`    
-	ResponseMetadata *ResponseMetadata `json:"response_metadata,omitempty"`
 	Needed           *string           `json:"needed,omitempty"`           
 	Provided         *string           `json:"provided,omitempty"`         
+	ApprovedApps     []ApprovedApp     `json:"approved_apps,omitempty"`    
+	ResponseMetadata *ResponseMetadata `json:"response_metadata,omitempty"`
 }
 
 type ApprovedApp struct {
@@ -44,8 +45,8 @@ type App struct {
 	AppDirectoryURL        *string `json:"app_directory_url,omitempty"`        
 	IsAppDirectoryApproved *bool   `json:"is_app_directory_approved,omitempty"`
 	IsInternal             *bool   `json:"is_internal,omitempty"`              
-	Icons                  *Icons  `json:"icons,omitempty"`                    
 	AdditionalInfo         *string `json:"additional_info,omitempty"`          
+	Icons                  *Icons  `json:"icons,omitempty"`                    
 }
 
 type Icons struct {
@@ -75,5 +76,7 @@ type Scope struct {
 }
 
 type ResponseMetadata struct {
-	NextCursor *string `json:"next_cursor,omitempty"`
+	NextCursor *string  `json:"next_cursor,omitempty"`
+	Messages   []string `json:"messages,omitempty"`   
+	Warnings   []string `json:"warnings,omitempty"`   
 }

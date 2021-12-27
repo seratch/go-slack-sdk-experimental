@@ -6,8 +6,6 @@
 
 package search_messages
 
-import "bytes"
-import "errors"
 import "encoding/json"
 
 func UnmarshalSearchMessages(data []byte) (SearchMessages, error) {
@@ -37,43 +35,50 @@ type Messages struct {
 }
 
 type Match struct {
-	Iid         *string           `json:"iid,omitempty"`         
-	Team        *string           `json:"team,omitempty"`        
-	Channel     *Channel          `json:"channel,omitempty"`     
-	Type        *string           `json:"type,omitempty"`        
-	User        *string           `json:"user,omitempty"`        
-	Username    *string           `json:"username,omitempty"`    
-	Ts          *string           `json:"ts,omitempty"`          
-	Text        *string           `json:"text,omitempty"`        
-	Permalink   *string           `json:"permalink,omitempty"`   
-	NoReactions *bool             `json:"no_reactions,omitempty"`
-	Previous    *Previous         `json:"previous,omitempty"`    
-	Previous2   *Previous2        `json:"previous_2,omitempty"`  
-	Blocks      []Block           `json:"blocks,omitempty"`      
-	Attachments []MatchAttachment `json:"attachments,omitempty"` 
-	IsMpim      *bool             `json:"is_mpim,omitempty"`     
-	Score       *int64            `json:"score,omitempty"`       
+	Iid         *string      `json:"iid,omitempty"`         
+	Team        *string      `json:"team,omitempty"`        
+	Channel     *Channel     `json:"channel,omitempty"`     
+	Type        *string      `json:"type,omitempty"`        
+	User        *string      `json:"user,omitempty"`        
+	Username    *string      `json:"username,omitempty"`    
+	Ts          *string      `json:"ts,omitempty"`          
+	Text        *string      `json:"text,omitempty"`        
+	Permalink   *string      `json:"permalink,omitempty"`   
+	NoReactions *bool        `json:"no_reactions,omitempty"`
+	Previous    *Previous    `json:"previous,omitempty"`    
+	Previous2   *Previous    `json:"previous_2,omitempty"`  
+	Blocks      []Block      `json:"blocks,omitempty"`      
+	Attachments []Attachment `json:"attachments,omitempty"` 
+	IsMpim      *bool        `json:"is_mpim,omitempty"`     
+	Score       *int64       `json:"score,omitempty"`       
+	Files       []File       `json:"files,omitempty"`       
 }
 
-type MatchAttachment struct {
-	MsgSubtype         *string   `json:"msg_subtype,omitempty"`          
+type Attachment struct {
+	ServiceName        *string   `json:"service_name,omitempty"`         
+	Title              *string   `json:"title,omitempty"`                
+	TitleLink          *string   `json:"title_link,omitempty"`           
+	Text               *string   `json:"text,omitempty"`                 
 	Fallback           *string   `json:"fallback,omitempty"`             
+	ThumbURL           *string   `json:"thumb_url,omitempty"`            
+	FromURL            *string   `json:"from_url,omitempty"`             
+	ThumbWidth         *int64    `json:"thumb_width,omitempty"`          
+	ThumbHeight        *int64    `json:"thumb_height,omitempty"`         
+	ServiceIcon        *string   `json:"service_icon,omitempty"`         
+	ID                 *int64    `json:"id,omitempty"`                   
+	OriginalURL        *string   `json:"original_url,omitempty"`         
+	MsgSubtype         *string   `json:"msg_subtype,omitempty"`          
 	CallbackID         *string   `json:"callback_id,omitempty"`          
 	Color              *string   `json:"color,omitempty"`                
 	Pretext            *string   `json:"pretext,omitempty"`              
 	ServiceURL         *string   `json:"service_url,omitempty"`          
-	ServiceName        *string   `json:"service_name,omitempty"`         
-	ServiceIcon        *string   `json:"service_icon,omitempty"`         
 	AuthorID           *string   `json:"author_id,omitempty"`            
 	AuthorName         *string   `json:"author_name,omitempty"`          
 	AuthorLink         *string   `json:"author_link,omitempty"`          
 	AuthorIcon         *string   `json:"author_icon,omitempty"`          
-	FromURL            *string   `json:"from_url,omitempty"`             
-	OriginalURL        *string   `json:"original_url,omitempty"`         
 	AuthorSubname      *string   `json:"author_subname,omitempty"`       
 	ChannelID          *string   `json:"channel_id,omitempty"`           
 	ChannelName        *string   `json:"channel_name,omitempty"`         
-	ID                 *int64    `json:"id,omitempty"`                   
 	BotID              *string   `json:"bot_id,omitempty"`               
 	Indent             *bool     `json:"indent,omitempty"`               
 	IsMsgUnfurl        *bool     `json:"is_msg_unfurl,omitempty"`        
@@ -81,17 +86,12 @@ type MatchAttachment struct {
 	IsThreadRootUnfurl *bool     `json:"is_thread_root_unfurl,omitempty"`
 	IsAppUnfurl        *bool     `json:"is_app_unfurl,omitempty"`        
 	AppUnfurlURL       *string   `json:"app_unfurl_url,omitempty"`       
-	Title              *string   `json:"title,omitempty"`                
-	TitleLink          *string   `json:"title_link,omitempty"`           
-	Text               *string   `json:"text,omitempty"`                 
 	Fields             []Field   `json:"fields,omitempty"`               
 	ImageURL           *string   `json:"image_url,omitempty"`            
 	ImageWidth         *int64    `json:"image_width,omitempty"`          
 	ImageHeight        *int64    `json:"image_height,omitempty"`         
 	ImageBytes         *int64    `json:"image_bytes,omitempty"`          
-	ThumbURL           *string   `json:"thumb_url,omitempty"`            
-	ThumbWidth         *int64    `json:"thumb_width,omitempty"`          
-	ThumbHeight        *int64    `json:"thumb_height,omitempty"`         
+	VideoURL           *string   `json:"video_url,omitempty"`            
 	VideoHTML          *string   `json:"video_html,omitempty"`           
 	VideoHTMLWidth     *int64    `json:"video_html_width,omitempty"`     
 	VideoHTMLHeight    *int64    `json:"video_html_height,omitempty"`    
@@ -196,10 +196,12 @@ type Element struct {
 	Placeholder                  *Text           `json:"placeholder,omitempty"`                    
 	InitialChannel               *string         `json:"initial_channel,omitempty"`                
 	ResponseURLEnabled           *bool           `json:"response_url_enabled,omitempty"`           
+	FocusOnLoad                  *bool           `json:"focus_on_load,omitempty"`                  
 	InitialConversation          *string         `json:"initial_conversation,omitempty"`           
 	DefaultToCurrentConversation *bool           `json:"default_to_current_conversation,omitempty"`
 	Filter                       *Filter         `json:"filter,omitempty"`                         
 	InitialDate                  *string         `json:"initial_date,omitempty"`                   
+	InitialTime                  *string         `json:"initial_time,omitempty"`                   
 	InitialOption                *InitialOption  `json:"initial_option,omitempty"`                 
 	MinQueryLength               *int64          `json:"min_query_length,omitempty"`               
 	ImageURL                     *string         `json:"image_url,omitempty"`                      
@@ -255,80 +257,142 @@ type Channel struct {
 	NameNormalized     *string  `json:"name_normalized,omitempty"`      
 }
 
+type File struct {
+	ID                      *string         `json:"id,omitempty"`                       
+	Created                 *int64          `json:"created,omitempty"`                  
+	Timestamp               *int64          `json:"timestamp,omitempty"`                
+	Name                    *string         `json:"name,omitempty"`                     
+	Title                   *string         `json:"title,omitempty"`                    
+	Subject                 *string         `json:"subject,omitempty"`                  
+	Mimetype                *string         `json:"mimetype,omitempty"`                 
+	Filetype                *string         `json:"filetype,omitempty"`                 
+	PrettyType              *string         `json:"pretty_type,omitempty"`              
+	User                    *string         `json:"user,omitempty"`                     
+	Mode                    *string         `json:"mode,omitempty"`                     
+	Editable                *bool           `json:"editable,omitempty"`                 
+	NonOwnerEditable        *bool           `json:"non_owner_editable,omitempty"`       
+	Editor                  *string         `json:"editor,omitempty"`                   
+	LastEditor              *string         `json:"last_editor,omitempty"`              
+	Updated                 *int64          `json:"updated,omitempty"`                  
+	OriginalAttachmentCount *int64          `json:"original_attachment_count,omitempty"`
+	IsExternal              *bool           `json:"is_external,omitempty"`              
+	ExternalType            *string         `json:"external_type,omitempty"`            
+	ExternalID              *string         `json:"external_id,omitempty"`              
+	ExternalURL             *string         `json:"external_url,omitempty"`             
+	Username                *string         `json:"username,omitempty"`                 
+	Size                    *int64          `json:"size,omitempty"`                     
+	URLPrivate              *string         `json:"url_private,omitempty"`              
+	URLPrivateDownload      *string         `json:"url_private_download,omitempty"`     
+	AppID                   *string         `json:"app_id,omitempty"`                   
+	AppName                 *string         `json:"app_name,omitempty"`                 
+	Thumb64                 *string         `json:"thumb_64,omitempty"`                 
+	Thumb64_GIF             *string         `json:"thumb_64_gif,omitempty"`             
+	Thumb64_W               *string         `json:"thumb_64_w,omitempty"`               
+	Thumb64_H               *string         `json:"thumb_64_h,omitempty"`               
+	Thumb80                 *string         `json:"thumb_80,omitempty"`                 
+	Thumb80_GIF             *string         `json:"thumb_80_gif,omitempty"`             
+	Thumb80_W               *string         `json:"thumb_80_w,omitempty"`               
+	Thumb80_H               *string         `json:"thumb_80_h,omitempty"`               
+	Thumb160                *string         `json:"thumb_160,omitempty"`                
+	Thumb160_GIF            *string         `json:"thumb_160_gif,omitempty"`            
+	Thumb160_W              *string         `json:"thumb_160_w,omitempty"`              
+	Thumb160_H              *string         `json:"thumb_160_h,omitempty"`              
+	Thumb360                *string         `json:"thumb_360,omitempty"`                
+	Thumb360_GIF            *string         `json:"thumb_360_gif,omitempty"`            
+	Thumb360_W              *string         `json:"thumb_360_w,omitempty"`              
+	Thumb360_H              *string         `json:"thumb_360_h,omitempty"`              
+	Thumb480                *string         `json:"thumb_480,omitempty"`                
+	Thumb480_GIF            *string         `json:"thumb_480_gif,omitempty"`            
+	Thumb480_W              *string         `json:"thumb_480_w,omitempty"`              
+	Thumb480_H              *string         `json:"thumb_480_h,omitempty"`              
+	Thumb720                *string         `json:"thumb_720,omitempty"`                
+	Thumb720_GIF            *string         `json:"thumb_720_gif,omitempty"`            
+	Thumb720_W              *string         `json:"thumb_720_w,omitempty"`              
+	Thumb720_H              *string         `json:"thumb_720_h,omitempty"`              
+	Thumb800                *string         `json:"thumb_800,omitempty"`                
+	Thumb800_GIF            *string         `json:"thumb_800_gif,omitempty"`            
+	Thumb800_W              *string         `json:"thumb_800_w,omitempty"`              
+	Thumb800_H              *string         `json:"thumb_800_h,omitempty"`              
+	Thumb960                *string         `json:"thumb_960,omitempty"`                
+	Thumb960_GIF            *string         `json:"thumb_960_gif,omitempty"`            
+	Thumb960_W              *string         `json:"thumb_960_w,omitempty"`              
+	Thumb960_H              *string         `json:"thumb_960_h,omitempty"`              
+	Thumb1024               *string         `json:"thumb_1024,omitempty"`               
+	Thumb1024_GIF           *string         `json:"thumb_1024_gif,omitempty"`           
+	Thumb1024_W             *string         `json:"thumb_1024_w,omitempty"`             
+	Thumb1024_H             *string         `json:"thumb_1024_h,omitempty"`             
+	ThumbVideo              *string         `json:"thumb_video,omitempty"`              
+	ThumbGIF                *string         `json:"thumb_gif,omitempty"`                
+	ThumbPDF                *string         `json:"thumb_pdf,omitempty"`                
+	ThumbPDFW               *string         `json:"thumb_pdf_w,omitempty"`              
+	ThumbPDFH               *string         `json:"thumb_pdf_h,omitempty"`              
+	ThumbTiny               *string         `json:"thumb_tiny,omitempty"`               
+	ConvertedPDF            *string         `json:"converted_pdf,omitempty"`            
+	ImageExifRotation       *int64          `json:"image_exif_rotation,omitempty"`      
+	OriginalW               *string         `json:"original_w,omitempty"`               
+	OriginalH               *string         `json:"original_h,omitempty"`               
+	Deanimate               *string         `json:"deanimate,omitempty"`                
+	DeanimateGIF            *string         `json:"deanimate_gif,omitempty"`            
+	Pjpeg                   *string         `json:"pjpeg,omitempty"`                    
+	Permalink               *string         `json:"permalink,omitempty"`                
+	PermalinkPublic         *string         `json:"permalink_public,omitempty"`         
+	EditLink                *string         `json:"edit_link,omitempty"`                
+	HasRichPreview          *bool           `json:"has_rich_preview,omitempty"`         
+	MediaDisplayType        *string         `json:"media_display_type,omitempty"`       
+	PreviewIsTruncated      *bool           `json:"preview_is_truncated,omitempty"`     
+	Preview                 *string         `json:"preview,omitempty"`                  
+	PreviewHighlight        *string         `json:"preview_highlight,omitempty"`        
+	PlainText               *string         `json:"plain_text,omitempty"`               
+	PreviewPlainText        *string         `json:"preview_plain_text,omitempty"`       
+	HasMore                 *bool           `json:"has_more,omitempty"`                 
+	SentToSelf              *bool           `json:"sent_to_self,omitempty"`             
+	Lines                   *int64          `json:"lines,omitempty"`                    
+	LinesMore               *int64          `json:"lines_more,omitempty"`               
+	IsPublic                *bool           `json:"is_public,omitempty"`                
+	PublicURLShared         *bool           `json:"public_url_shared,omitempty"`        
+	DisplayAsBot            *bool           `json:"display_as_bot,omitempty"`           
+	Shares                  *Shares         `json:"shares,omitempty"`                   
+	ChannelActionsTs        *string         `json:"channel_actions_ts,omitempty"`       
+	ChannelActionsCount     *int64          `json:"channel_actions_count,omitempty"`    
+	Headers                 *Headers        `json:"headers,omitempty"`                  
+	SimplifiedHTML          *string         `json:"simplified_html,omitempty"`          
+	BotID                   *string         `json:"bot_id,omitempty"`                   
+	InitialComment          *InitialComment `json:"initial_comment,omitempty"`          
+	NumStars                *int64          `json:"num_stars,omitempty"`                
+	IsStarred               *bool           `json:"is_starred,omitempty"`               
+	CommentsCount           *int64          `json:"comments_count,omitempty"`           
+}
+
+type Headers struct {
+	Date      *string `json:"date,omitempty"`       
+	InReplyTo *string `json:"in_reply_to,omitempty"`
+	ReplyTo   *string `json:"reply_to,omitempty"`   
+	MessageID *string `json:"message_id,omitempty"` 
+}
+
+type InitialComment struct {
+	ID        *string `json:"id,omitempty"`       
+	Created   *int64  `json:"created,omitempty"`  
+	Timestamp *int64  `json:"timestamp,omitempty"`
+	User      *string `json:"user,omitempty"`     
+	Comment   *string `json:"comment,omitempty"`  
+	Channel   *string `json:"channel,omitempty"`  
+	IsIntro   *bool   `json:"is_intro,omitempty"` 
+}
+
+type Shares struct {
+}
+
 type Previous struct {
-	Type        *string           `json:"type,omitempty"`       
-	User        *string           `json:"user,omitempty"`       
-	Username    *string           `json:"username,omitempty"`   
-	Ts          *string           `json:"ts,omitempty"`         
-	Text        *string           `json:"text,omitempty"`       
-	Iid         *string           `json:"iid,omitempty"`        
-	Permalink   *string           `json:"permalink,omitempty"`  
-	Attachments []MatchAttachment `json:"attachments,omitempty"`
-	Blocks      []Block           `json:"blocks,omitempty"`     
-}
-
-type Previous2 struct {
-	Type        *string                `json:"type,omitempty"`       
-	User        *string                `json:"user,omitempty"`       
-	Username    *string                `json:"username,omitempty"`   
-	Ts          *string                `json:"ts,omitempty"`         
-	Text        *string                `json:"text,omitempty"`       
-	Iid         *string                `json:"iid,omitempty"`        
-	Permalink   *string                `json:"permalink,omitempty"`  
-	Attachments []Previous2_Attachment `json:"attachments,omitempty"`
-	Blocks      []Block                `json:"blocks,omitempty"`     
-}
-
-type Previous2_Attachment struct {
-	ServiceName        *string   `json:"service_name,omitempty"`         
-	Title              *string   `json:"title,omitempty"`                
-	TitleLink          *string   `json:"title_link,omitempty"`           
-	Text               *string   `json:"text,omitempty"`                 
-	Fallback           *string   `json:"fallback,omitempty"`             
-	ImageURL           *string   `json:"image_url,omitempty"`            
-	Ts                 *Ts       `json:"ts"`                             
-	FromURL            *string   `json:"from_url,omitempty"`             
-	ImageWidth         *int64    `json:"image_width,omitempty"`          
-	ImageHeight        *int64    `json:"image_height,omitempty"`         
-	ImageBytes         *int64    `json:"image_bytes,omitempty"`          
-	ServiceIcon        *string   `json:"service_icon,omitempty"`         
-	ID                 *int64    `json:"id,omitempty"`                   
-	OriginalURL        *string   `json:"original_url,omitempty"`         
-	MsgSubtype         *string   `json:"msg_subtype,omitempty"`          
-	CallbackID         *string   `json:"callback_id,omitempty"`          
-	Color              *string   `json:"color,omitempty"`                
-	Pretext            *string   `json:"pretext,omitempty"`              
-	ServiceURL         *string   `json:"service_url,omitempty"`          
-	AuthorID           *string   `json:"author_id,omitempty"`            
-	AuthorName         *string   `json:"author_name,omitempty"`          
-	AuthorLink         *string   `json:"author_link,omitempty"`          
-	AuthorIcon         *string   `json:"author_icon,omitempty"`          
-	AuthorSubname      *string   `json:"author_subname,omitempty"`       
-	ChannelID          *string   `json:"channel_id,omitempty"`           
-	ChannelName        *string   `json:"channel_name,omitempty"`         
-	BotID              *string   `json:"bot_id,omitempty"`               
-	Indent             *bool     `json:"indent,omitempty"`               
-	IsMsgUnfurl        *bool     `json:"is_msg_unfurl,omitempty"`        
-	IsReplyUnfurl      *bool     `json:"is_reply_unfurl,omitempty"`      
-	IsThreadRootUnfurl *bool     `json:"is_thread_root_unfurl,omitempty"`
-	IsAppUnfurl        *bool     `json:"is_app_unfurl,omitempty"`        
-	AppUnfurlURL       *string   `json:"app_unfurl_url,omitempty"`       
-	Fields             []Field   `json:"fields,omitempty"`               
-	ThumbURL           *string   `json:"thumb_url,omitempty"`            
-	ThumbWidth         *int64    `json:"thumb_width,omitempty"`          
-	ThumbHeight        *int64    `json:"thumb_height,omitempty"`         
-	VideoHTML          *string   `json:"video_html,omitempty"`           
-	VideoHTMLWidth     *int64    `json:"video_html_width,omitempty"`     
-	VideoHTMLHeight    *int64    `json:"video_html_height,omitempty"`    
-	Footer             *string   `json:"footer,omitempty"`               
-	FooterIcon         *string   `json:"footer_icon,omitempty"`          
-	MrkdwnIn           []string  `json:"mrkdwn_in,omitempty"`            
-	Actions            []Action  `json:"actions,omitempty"`              
-	Filename           *string   `json:"filename,omitempty"`             
-	Size               *int64    `json:"size,omitempty"`                 
-	Mimetype           *string   `json:"mimetype,omitempty"`             
-	URL                *string   `json:"url,omitempty"`                  
-	Metadata           *Metadata `json:"metadata,omitempty"`             
+	Type        *string      `json:"type,omitempty"`       
+	User        *string      `json:"user,omitempty"`       
+	Username    *string      `json:"username,omitempty"`   
+	Ts          *string      `json:"ts,omitempty"`         
+	Text        *string      `json:"text,omitempty"`       
+	Iid         *string      `json:"iid,omitempty"`        
+	Permalink   *string      `json:"permalink,omitempty"`  
+	Attachments []Attachment `json:"attachments,omitempty"`
+	Blocks      []Block      `json:"blocks,omitempty"`     
 }
 
 type Pagination struct {
@@ -345,137 +409,4 @@ type Paging struct {
 	Total *int64 `json:"total,omitempty"`
 	Page  *int64 `json:"page,omitempty"` 
 	Pages *int64 `json:"pages,omitempty"`
-}
-
-type Ts struct {
-	Integer *int64
-	String  *string
-}
-
-func (x *Ts) UnmarshalJSON(data []byte) error {
-	object, err := unmarshalUnion(data, &x.Integer, nil, nil, &x.String, false, nil, false, nil, false, nil, false, nil, false)
-	if err != nil {
-		return err
-	}
-	if object {
-	}
-	return nil
-}
-
-func (x *Ts) MarshalJSON() ([]byte, error) {
-	return marshalUnion(x.Integer, nil, nil, x.String, false, nil, false, nil, false, nil, false, nil, false)
-}
-
-func unmarshalUnion(data []byte, pi **int64, pf **float64, pb **bool, ps **string, haveArray bool, pa interface{}, haveObject bool, pc interface{}, haveMap bool, pm interface{}, haveEnum bool, pe interface{}, nullable bool) (bool, error) {
-	if pi != nil {
-		*pi = nil
-	}
-	if pf != nil {
-		*pf = nil
-	}
-	if pb != nil {
-		*pb = nil
-	}
-	if ps != nil {
-		*ps = nil
-	}
-
-	dec := json.NewDecoder(bytes.NewReader(data))
-	dec.UseNumber()
-	tok, err := dec.Token()
-	if err != nil {
-		return false, err
-	}
-
-	switch v := tok.(type) {
-	case json.Number:
-		if pi != nil {
-			i, err := v.Int64()
-			if err == nil {
-				*pi = &i
-				return false, nil
-			}
-		}
-		if pf != nil {
-			f, err := v.Float64()
-			if err == nil {
-				*pf = &f
-				return false, nil
-			}
-			return false, errors.New("Unparsable number")
-		}
-		return false, errors.New("Union does not contain number")
-	case float64:
-		return false, errors.New("Decoder should not return float64")
-	case bool:
-		if pb != nil {
-			*pb = &v
-			return false, nil
-		}
-		return false, errors.New("Union does not contain bool")
-	case string:
-		if haveEnum {
-			return false, json.Unmarshal(data, pe)
-		}
-		if ps != nil {
-			*ps = &v
-			return false, nil
-		}
-		return false, errors.New("Union does not contain string")
-	case nil:
-		if nullable {
-			return false, nil
-		}
-		return false, errors.New("Union does not contain null")
-	case json.Delim:
-		if v == '{' {
-			if haveObject {
-				return true, json.Unmarshal(data, pc)
-			}
-			if haveMap {
-				return false, json.Unmarshal(data, pm)
-			}
-			return false, errors.New("Union does not contain object")
-		}
-		if v == '[' {
-			if haveArray {
-				return false, json.Unmarshal(data, pa)
-			}
-			return false, errors.New("Union does not contain array")
-		}
-		return false, errors.New("Cannot handle delimiter")
-	}
-	return false, errors.New("Cannot unmarshal union")
-
-}
-
-func marshalUnion(pi *int64, pf *float64, pb *bool, ps *string, haveArray bool, pa interface{}, haveObject bool, pc interface{}, haveMap bool, pm interface{}, haveEnum bool, pe interface{}, nullable bool) ([]byte, error) {
-	if pi != nil {
-		return json.Marshal(*pi)
-	}
-	if pf != nil {
-		return json.Marshal(*pf)
-	}
-	if pb != nil {
-		return json.Marshal(*pb)
-	}
-	if ps != nil {
-		return json.Marshal(*ps)
-	}
-	if haveArray {
-		return json.Marshal(pa)
-	}
-	if haveObject {
-		return json.Marshal(pc)
-	}
-	if haveMap {
-		return json.Marshal(pm)
-	}
-	if haveEnum {
-		return json.Marshal(pe)
-	}
-	if nullable {
-		return json.Marshal(nil)
-	}
-	return nil, errors.New("Union must not be null")
 }

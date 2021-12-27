@@ -20,21 +20,23 @@ func (r *AdminAppsRequestsList) Marshal() ([]byte, error) {
 
 type AdminAppsRequestsList struct {
 	Ok               *bool             `json:"ok,omitempty"`               
-	AppRequests      []AppRequest      `json:"app_requests,omitempty"`     
-	ResponseMetadata *ResponseMetadata `json:"response_metadata,omitempty"`
+	Warning          *string           `json:"warning,omitempty"`          
 	Error            *string           `json:"error,omitempty"`            
 	Needed           *string           `json:"needed,omitempty"`           
 	Provided         *string           `json:"provided,omitempty"`         
+	AppRequests      []AppRequest      `json:"app_requests,omitempty"`     
+	ResponseMetadata *ResponseMetadata `json:"response_metadata,omitempty"`
 }
 
 type AppRequest struct {
-	ID                 *string             `json:"id,omitempty"`                 
-	App                *App                `json:"app,omitempty"`                
-	User               *User               `json:"user,omitempty"`               
-	Team               *Team               `json:"team,omitempty"`               
-	PreviousResolution *PreviousResolution `json:"previous_resolution,omitempty"`
-	Message            *string             `json:"message,omitempty"`            
-	DateCreated        *int64              `json:"date_created,omitempty"`       
+	ID                    *string             `json:"id,omitempty"`                      
+	App                   *App                `json:"app,omitempty"`                     
+	User                  *User               `json:"user,omitempty"`                    
+	Team                  *Team               `json:"team,omitempty"`                    
+	PreviousResolution    *PreviousResolution `json:"previous_resolution,omitempty"`     
+	IsUserAppCollaborator *bool               `json:"is_user_app_collaborator,omitempty"`
+	Message               *string             `json:"message,omitempty"`                 
+	DateCreated           *int64              `json:"date_created,omitempty"`            
 }
 
 type App struct {
@@ -82,5 +84,7 @@ type User struct {
 }
 
 type ResponseMetadata struct {
-	NextCursor *string `json:"next_cursor,omitempty"`
+	NextCursor *string  `json:"next_cursor,omitempty"`
+	Messages   []string `json:"messages,omitempty"`   
+	Warnings   []string `json:"warnings,omitempty"`   
 }

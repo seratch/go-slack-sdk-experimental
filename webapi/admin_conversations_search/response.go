@@ -51,4 +51,5 @@ type Conversation struct {
 	ConnectedTeamIDS          []string `json:"connected_team_ids,omitempty"`           
 	ConversationHostID        *string  `json:"conversation_host_id,omitempty"`         
 	ChannelEmailAddresses     []string `json:"channel_email_addresses,omitempty"`      
+	ConnectedLimitedTeamIDS   []string `json:"connected_limited_team_ids,omitempty"`   
 }

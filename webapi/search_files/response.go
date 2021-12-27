@@ -99,6 +99,9 @@ type Match struct {
 	LastEditor         *string  `json:"last_editor,omitempty"`         
 	NonOwnerEditable   *bool    `json:"non_owner_editable,omitempty"`  
 	Updated            *int64   `json:"updated,omitempty"`             
+	ThumbVideo         *string  `json:"thumb_video,omitempty"`         
+	MediaDisplayType   *string  `json:"media_display_type,omitempty"`  
+	CommentsCount      *int64   `json:"comments_count,omitempty"`      
 }
 
 type Shares struct {

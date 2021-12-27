@@ -1,0 +1,2 @@
+package conversations_listConnectInvites
+const ApiMethod string = "conversations.listConnectInvites"

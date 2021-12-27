@@ -19,8 +19,14 @@ func (r *DialogOpen) Marshal() ([]byte, error) {
 }
 
 type DialogOpen struct {
-	Ok       *bool   `json:"ok,omitempty"`      
-	Error    *string `json:"error,omitempty"`   
-	Needed   *string `json:"needed,omitempty"`  
-	Provided *string `json:"provided,omitempty"`
+	Ok               *bool             `json:"ok,omitempty"`               
+	Warning          *string           `json:"warning,omitempty"`          
+	Error            *string           `json:"error,omitempty"`            
+	Needed           *string           `json:"needed,omitempty"`           
+	Provided         *string           `json:"provided,omitempty"`         
+	ResponseMetadata *ResponseMetadata `json:"response_metadata,omitempty"`
+}
+
+type ResponseMetadata struct {
+	Messages []string `json:"messages,omitempty"`
 }

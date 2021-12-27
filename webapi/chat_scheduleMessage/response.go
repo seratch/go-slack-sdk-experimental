@@ -19,14 +19,15 @@ func (r *ChatScheduleMessage) Marshal() ([]byte, error) {
 }
 
 type ChatScheduleMessage struct {
-	Ok                 *bool    `json:"ok,omitempty"`                  
-	ScheduledMessageID *string  `json:"scheduled_message_id,omitempty"`
-	Channel            *string  `json:"channel,omitempty"`             
-	PostAt             *int64   `json:"post_at,omitempty"`             
-	Message            *Message `json:"message,omitempty"`             
-	Error              *string  `json:"error,omitempty"`               
-	Needed             *string  `json:"needed,omitempty"`              
-	Provided           *string  `json:"provided,omitempty"`            
+	Ok                 *bool             `json:"ok,omitempty"`                  
+	ScheduledMessageID *string           `json:"scheduled_message_id,omitempty"`
+	Channel            *string           `json:"channel,omitempty"`             
+	PostAt             *int64            `json:"post_at,omitempty"`             
+	Message            *Message          `json:"message,omitempty"`             
+	Error              *string           `json:"error,omitempty"`               
+	ResponseMetadata   *ResponseMetadata `json:"response_metadata,omitempty"`   
+	Needed             *string           `json:"needed,omitempty"`              
+	Provided           *string           `json:"provided,omitempty"`            
 }
 
 type Message struct {
@@ -41,9 +42,8 @@ type Message struct {
 
 type Block struct {
 	Type        *string    `json:"type,omitempty"`        
-	BlockID     *string    `json:"block_id,omitempty"`    
-	Text        *Text      `json:"text,omitempty"`        
 	Elements    []Element  `json:"elements,omitempty"`    
+	BlockID     *string    `json:"block_id,omitempty"`    
 	Fallback    *string    `json:"fallback,omitempty"`    
 	ImageURL    *string    `json:"image_url,omitempty"`   
 	ImageWidth  *int64     `json:"image_width,omitempty"` 
@@ -51,6 +51,7 @@ type Block struct {
 	ImageBytes  *int64     `json:"image_bytes,omitempty"` 
 	AltText     *string    `json:"alt_text,omitempty"`    
 	Title       *Text      `json:"title,omitempty"`       
+	Text        *Text      `json:"text,omitempty"`        
 	Fields      []Text     `json:"fields,omitempty"`      
 	Accessory   *Accessory `json:"accessory,omitempty"`   
 }
@@ -76,10 +77,12 @@ type Element struct {
 	Placeholder                  *Text          `json:"placeholder,omitempty"`                    
 	InitialChannel               *string        `json:"initial_channel,omitempty"`                
 	ResponseURLEnabled           *bool          `json:"response_url_enabled,omitempty"`           
+	FocusOnLoad                  *bool          `json:"focus_on_load,omitempty"`                  
 	InitialConversation          *string        `json:"initial_conversation,omitempty"`           
 	DefaultToCurrentConversation *bool          `json:"default_to_current_conversation,omitempty"`
 	Filter                       *Filter        `json:"filter,omitempty"`                         
 	InitialDate                  *string        `json:"initial_date,omitempty"`                   
+	InitialTime                  *string        `json:"initial_time,omitempty"`                   
 	InitialOption                *InitialOption `json:"initial_option,omitempty"`                 
 	MinQueryLength               *int64         `json:"min_query_length,omitempty"`               
 	ImageURL                     *string        `json:"image_url,omitempty"`                      
@@ -132,4 +135,8 @@ type Icons struct {
 	Image36 *string `json:"image_36,omitempty"`
 	Image48 *string `json:"image_48,omitempty"`
 	Image72 *string `json:"image_72,omitempty"`
+}
+
+type ResponseMetadata struct {
+	Messages []string `json:"messages,omitempty"`
 }

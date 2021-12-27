@@ -27,11 +27,18 @@ type RemindersList struct {
 }
 
 type Reminder struct {
-	ID         *string `json:"id,omitempty"`         
-	Creator    *string `json:"creator,omitempty"`    
-	Text       *string `json:"text,omitempty"`       
-	User       *string `json:"user,omitempty"`       
-	Recurring  *bool   `json:"recurring,omitempty"`  
-	Time       *int64  `json:"time,omitempty"`       
-	CompleteTs *int64  `json:"complete_ts,omitempty"`
+	ID         *string     `json:"id,omitempty"`         
+	Creator    *string     `json:"creator,omitempty"`    
+	Text       *string     `json:"text,omitempty"`       
+	User       *string     `json:"user,omitempty"`       
+	Recurring  *bool       `json:"recurring,omitempty"`  
+	Time       *int64      `json:"time,omitempty"`       
+	CompleteTs *int64      `json:"complete_ts,omitempty"`
+	Channel    *string     `json:"channel,omitempty"`    
+	Recurrence *Recurrence `json:"recurrence,omitempty"` 
+}
+
+type Recurrence struct {
+	Frequency *string  `json:"frequency,omitempty"`
+	Weekdays  []string `json:"weekdays,omitempty"` 
 }

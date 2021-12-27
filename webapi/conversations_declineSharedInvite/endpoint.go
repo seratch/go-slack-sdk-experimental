@@ -1,0 +1,2 @@
+package conversations_declineSharedInvite
+const ApiMethod string = "conversations.declineSharedInvite"

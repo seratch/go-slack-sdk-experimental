@@ -19,9 +19,15 @@ func (r *UsersGetPresence) Marshal() ([]byte, error) {
 }
 
 type UsersGetPresence struct {
-	Ok       *bool   `json:"ok,omitempty"`      
-	Presence *string `json:"presence,omitempty"`
-	Error    *string `json:"error,omitempty"`   
-	Needed   *string `json:"needed,omitempty"`  
-	Provided *string `json:"provided,omitempty"`
+	Ok              *bool   `json:"ok,omitempty"`              
+	Warning         *string `json:"warning,omitempty"`         
+	Error           *string `json:"error,omitempty"`           
+	Needed          *string `json:"needed,omitempty"`          
+	Provided        *string `json:"provided,omitempty"`        
+	Presence        *string `json:"presence,omitempty"`        
+	Online          *bool   `json:"online,omitempty"`          
+	AutoAway        *bool   `json:"auto_away,omitempty"`       
+	ManualAway      *bool   `json:"manual_away,omitempty"`     
+	ConnectionCount *int64  `json:"connection_count,omitempty"`
+	LastActivity    *int64  `json:"last_activity,omitempty"`   
 }

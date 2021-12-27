@@ -27,34 +27,43 @@ type UsersProfileGet struct {
 }
 
 type Profile struct {
-	Title                 *string          `json:"title,omitempty"`                  
-	Phone                 *string          `json:"phone,omitempty"`                  
-	Skype                 *string          `json:"skype,omitempty"`                  
-	RealName              *string          `json:"real_name,omitempty"`              
-	RealNameNormalized    *string          `json:"real_name_normalized,omitempty"`   
-	DisplayName           *string          `json:"display_name,omitempty"`           
-	DisplayNameNormalized *string          `json:"display_name_normalized,omitempty"`
-	Fields                map[string]Field `json:"fields,omitempty"`                 
-	StatusText            *string          `json:"status_text,omitempty"`            
-	StatusEmoji           *string          `json:"status_emoji,omitempty"`           
-	StatusExpiration      *int64           `json:"status_expiration,omitempty"`      
-	AvatarHash            *string          `json:"avatar_hash,omitempty"`            
-	ImageOriginal         *string          `json:"image_original,omitempty"`         
-	IsCustomImage         *bool            `json:"is_custom_image,omitempty"`        
-	Email                 *string          `json:"email,omitempty"`                  
-	FirstName             *string          `json:"first_name,omitempty"`             
-	LastName              *string          `json:"last_name,omitempty"`              
-	Image24               *string          `json:"image_24,omitempty"`               
-	Image32               *string          `json:"image_32,omitempty"`               
-	Image48               *string          `json:"image_48,omitempty"`               
-	Image72               *string          `json:"image_72,omitempty"`               
-	Image192              *string          `json:"image_192,omitempty"`              
-	Image512              *string          `json:"image_512,omitempty"`              
-	Image1024             *string          `json:"image_1024,omitempty"`             
-	StatusTextCanonical   *string          `json:"status_text_canonical,omitempty"`  
+	Title                  *string                  `json:"title,omitempty"`                    
+	Phone                  *string                  `json:"phone,omitempty"`                    
+	Skype                  *string                  `json:"skype,omitempty"`                    
+	RealName               *string                  `json:"real_name,omitempty"`                
+	RealNameNormalized     *string                  `json:"real_name_normalized,omitempty"`     
+	DisplayName            *string                  `json:"display_name,omitempty"`             
+	DisplayNameNormalized  *string                  `json:"display_name_normalized,omitempty"`  
+	Fields                 map[string]Field         `json:"fields,omitempty"`                   
+	StatusText             *string                  `json:"status_text,omitempty"`              
+	StatusEmoji            *string                  `json:"status_emoji,omitempty"`             
+	StatusExpiration       *int64                   `json:"status_expiration,omitempty"`        
+	AvatarHash             *string                  `json:"avatar_hash,omitempty"`              
+	ImageOriginal          *string                  `json:"image_original,omitempty"`           
+	IsCustomImage          *bool                    `json:"is_custom_image,omitempty"`          
+	Email                  *string                  `json:"email,omitempty"`                    
+	FirstName              *string                  `json:"first_name,omitempty"`               
+	LastName               *string                  `json:"last_name,omitempty"`                
+	Image24                *string                  `json:"image_24,omitempty"`                 
+	Image32                *string                  `json:"image_32,omitempty"`                 
+	Image48                *string                  `json:"image_48,omitempty"`                 
+	Image72                *string                  `json:"image_72,omitempty"`                 
+	Image192               *string                  `json:"image_192,omitempty"`                
+	Image512               *string                  `json:"image_512,omitempty"`                
+	Image1024              *string                  `json:"image_1024,omitempty"`               
+	StatusTextCanonical    *string                  `json:"status_text_canonical,omitempty"`    
+	StatusEmojiURL         *string                  `json:"status_emoji_url,omitempty"`         
+	Pronouns               *string                  `json:"pronouns,omitempty"`                 
+	StatusEmojiDisplayInfo []StatusEmojiDisplayInfo `json:"status_emoji_display_info,omitempty"`
 }
 
 type Field struct {
 	Value *string `json:"value,omitempty"`
 	Alt   *string `json:"alt,omitempty"`  
+}
+
+type StatusEmojiDisplayInfo struct {
+	EmojiName    *string `json:"emoji_name,omitempty"`   
+	DisplayAlias *string `json:"display_alias,omitempty"`
+	DisplayURL   *string `json:"display_url,omitempty"`  
 }

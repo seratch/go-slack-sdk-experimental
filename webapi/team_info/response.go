@@ -27,12 +27,17 @@ type TeamInfo struct {
 }
 
 type Team struct {
-	ID          *string `json:"id,omitempty"`          
-	Name        *string `json:"name,omitempty"`        
-	Domain      *string `json:"domain,omitempty"`      
-	EmailDomain *string `json:"email_domain,omitempty"`
-	Icon        *Icon   `json:"icon,omitempty"`        
-	IsVerified  *bool   `json:"is_verified,omitempty"` 
+	ID               *string `json:"id,omitempty"`               
+	Name             *string `json:"name,omitempty"`             
+	Domain           *string `json:"domain,omitempty"`           
+	EmailDomain      *string `json:"email_domain,omitempty"`     
+	Icon             *Icon   `json:"icon,omitempty"`             
+	IsVerified       *bool   `json:"is_verified,omitempty"`      
+	URL              *string `json:"url,omitempty"`              
+	EnterpriseID     *string `json:"enterprise_id,omitempty"`    
+	EnterpriseName   *string `json:"enterprise_name,omitempty"`  
+	EnterpriseDomain *string `json:"enterprise_domain,omitempty"`
+	Discoverable     *string `json:"discoverable,omitempty"`     
 }
 
 type Icon struct {

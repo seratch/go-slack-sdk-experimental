@@ -34,7 +34,7 @@ type ResponseMetadata struct {
 type ScheduledMessage struct {
 	ID          *string `json:"id,omitempty"`          
 	ChannelID   *string `json:"channel_id,omitempty"`  
-	Text        *string `json:"text,omitempty"`        
 	PostAt      *int64  `json:"post_at,omitempty"`     
 	DateCreated *int64  `json:"date_created,omitempty"`
+	Text        *string `json:"text,omitempty"`        
 }

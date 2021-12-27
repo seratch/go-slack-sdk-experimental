@@ -44,28 +44,31 @@ type Channel struct {
 }
 
 type Latest struct {
-	Type    *string `json:"type,omitempty"`   
-	Subtype *string `json:"subtype,omitempty"`
-	Text    *string `json:"text,omitempty"`   
-	Ts      *string `json:"ts,omitempty"`     
-	BotID   *string `json:"bot_id,omitempty"` 
-	Blocks  []Block `json:"blocks,omitempty"` 
+	Type        *string `json:"type,omitempty"`         
+	Subtype     *string `json:"subtype,omitempty"`      
+	Text        *string `json:"text,omitempty"`         
+	Ts          *string `json:"ts,omitempty"`           
+	BotID       *string `json:"bot_id,omitempty"`       
+	Blocks      []Block `json:"blocks,omitempty"`       
+	ClientMsgID *string `json:"client_msg_id,omitempty"`
+	User        *string `json:"user,omitempty"`         
+	Team        *string `json:"team,omitempty"`         
 }
 
 type Block struct {
-	Type        *string    `json:"type,omitempty"`        
-	Elements    []Element  `json:"elements,omitempty"`    
-	BlockID     *string    `json:"block_id,omitempty"`    
-	Fallback    *string    `json:"fallback,omitempty"`    
-	ImageURL    *string    `json:"image_url,omitempty"`   
-	ImageWidth  *int64     `json:"image_width,omitempty"` 
-	ImageHeight *int64     `json:"image_height,omitempty"`
-	ImageBytes  *int64     `json:"image_bytes,omitempty"` 
-	AltText     *string    `json:"alt_text,omitempty"`    
-	Title       *Text      `json:"title,omitempty"`       
-	Text        *Text      `json:"text,omitempty"`        
-	Fields      []Text     `json:"fields,omitempty"`      
-	Accessory   *Accessory `json:"accessory,omitempty"`   
+	Type        *string        `json:"type,omitempty"`        
+	BlockID     *string        `json:"block_id,omitempty"`    
+	Elements    []BlockElement `json:"elements,omitempty"`    
+	Fallback    *string        `json:"fallback,omitempty"`    
+	ImageURL    *string        `json:"image_url,omitempty"`   
+	ImageWidth  *int64         `json:"image_width,omitempty"` 
+	ImageHeight *int64         `json:"image_height,omitempty"`
+	ImageBytes  *int64         `json:"image_bytes,omitempty"` 
+	AltText     *string        `json:"alt_text,omitempty"`    
+	Title       *Text          `json:"title,omitempty"`       
+	Text        *Text          `json:"text,omitempty"`        
+	Fields      []Text         `json:"fields,omitempty"`      
+	Accessory   *Accessory     `json:"accessory,omitempty"`   
 }
 
 type Accessory struct {
@@ -78,30 +81,33 @@ type Accessory struct {
 	ImageBytes  *int64  `json:"image_bytes,omitempty"` 
 }
 
-type Element struct {
-	Type                         *string        `json:"type,omitempty"`                           
-	Text                         *Text          `json:"text,omitempty"`                           
-	ActionID                     *string        `json:"action_id,omitempty"`                      
-	URL                          *string        `json:"url,omitempty"`                            
-	Value                        *string        `json:"value,omitempty"`                          
-	Style                        *string        `json:"style,omitempty"`                          
-	Confirm                      *Confirm       `json:"confirm,omitempty"`                        
-	Placeholder                  *Text          `json:"placeholder,omitempty"`                    
-	InitialChannel               *string        `json:"initial_channel,omitempty"`                
-	ResponseURLEnabled           *bool          `json:"response_url_enabled,omitempty"`           
-	InitialConversation          *string        `json:"initial_conversation,omitempty"`           
-	DefaultToCurrentConversation *bool          `json:"default_to_current_conversation,omitempty"`
-	Filter                       *Filter        `json:"filter,omitempty"`                         
-	InitialDate                  *string        `json:"initial_date,omitempty"`                   
-	InitialOption                *InitialOption `json:"initial_option,omitempty"`                 
-	MinQueryLength               *int64         `json:"min_query_length,omitempty"`               
-	ImageURL                     *string        `json:"image_url,omitempty"`                      
-	AltText                      *string        `json:"alt_text,omitempty"`                       
-	Fallback                     *string        `json:"fallback,omitempty"`                       
-	ImageWidth                   *int64         `json:"image_width,omitempty"`                    
-	ImageHeight                  *int64         `json:"image_height,omitempty"`                   
-	ImageBytes                   *int64         `json:"image_bytes,omitempty"`                    
-	InitialUser                  *string        `json:"initial_user,omitempty"`                   
+type BlockElement struct {
+	Type                         *string               `json:"type,omitempty"`                           
+	Elements                     []ElementElementClass `json:"elements,omitempty"`                       
+	Text                         *Text                 `json:"text,omitempty"`                           
+	ActionID                     *string               `json:"action_id,omitempty"`                      
+	URL                          *string               `json:"url,omitempty"`                            
+	Value                        *string               `json:"value,omitempty"`                          
+	Style                        *string               `json:"style,omitempty"`                          
+	Confirm                      *Confirm              `json:"confirm,omitempty"`                        
+	Placeholder                  *Text                 `json:"placeholder,omitempty"`                    
+	InitialChannel               *string               `json:"initial_channel,omitempty"`                
+	ResponseURLEnabled           *bool                 `json:"response_url_enabled,omitempty"`           
+	FocusOnLoad                  *bool                 `json:"focus_on_load,omitempty"`                  
+	InitialConversation          *string               `json:"initial_conversation,omitempty"`           
+	DefaultToCurrentConversation *bool                 `json:"default_to_current_conversation,omitempty"`
+	Filter                       *Filter               `json:"filter,omitempty"`                         
+	InitialDate                  *string               `json:"initial_date,omitempty"`                   
+	InitialTime                  *string               `json:"initial_time,omitempty"`                   
+	InitialOption                *InitialOption        `json:"initial_option,omitempty"`                 
+	MinQueryLength               *int64                `json:"min_query_length,omitempty"`               
+	ImageURL                     *string               `json:"image_url,omitempty"`                      
+	AltText                      *string               `json:"alt_text,omitempty"`                       
+	Fallback                     *string               `json:"fallback,omitempty"`                       
+	ImageWidth                   *int64                `json:"image_width,omitempty"`                    
+	ImageHeight                  *int64                `json:"image_height,omitempty"`                   
+	ImageBytes                   *int64                `json:"image_bytes,omitempty"`                    
+	InitialUser                  *string               `json:"initial_user,omitempty"`                   
 }
 
 type Confirm struct {
@@ -117,6 +123,11 @@ type Text struct {
 	Text     *string `json:"text,omitempty"`    
 	Emoji    *bool   `json:"emoji,omitempty"`   
 	Verbatim *bool   `json:"verbatim,omitempty"`
+}
+
+type ElementElementClass struct {
+	Type *string `json:"type,omitempty"`
+	Text *string `json:"text,omitempty"`
 }
 
 type Filter struct {

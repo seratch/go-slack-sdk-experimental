@@ -1,0 +1,2 @@
+package conversations_approveSharedInvite
+const ApiMethod string = "conversations.approveSharedInvite"

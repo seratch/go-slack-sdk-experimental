@@ -20,6 +20,7 @@ func (r *AdminAppsClearResolution) Marshal() ([]byte, error) {
 
 type AdminAppsClearResolution struct {
 	Ok       *bool   `json:"ok,omitempty"`      
+	Warning  *string `json:"warning,omitempty"` 
 	Error    *string `json:"error,omitempty"`   
 	Needed   *string `json:"needed,omitempty"`  
 	Provided *string `json:"provided,omitempty"`

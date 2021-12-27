@@ -29,6 +29,8 @@ type OauthV2Access struct {
 	Scope               *string          `json:"scope,omitempty"`                
 	TokenType           *string          `json:"token_type,omitempty"`           
 	AccessToken         *string          `json:"access_token,omitempty"`         
+	RefreshToken        *string          `json:"refresh_token,omitempty"`        
+	ExpiresIn           *int64           `json:"expires_in,omitempty"`           
 	BotUserID           *string          `json:"bot_user_id,omitempty"`          
 	Team                *Enterprise      `json:"team,omitempty"`                 
 	Enterprise          *Enterprise      `json:"enterprise,omitempty"`           
@@ -37,10 +39,12 @@ type OauthV2Access struct {
 }
 
 type AuthedUser struct {
-	ID          *string `json:"id,omitempty"`          
-	Scope       *string `json:"scope,omitempty"`       
-	TokenType   *string `json:"token_type,omitempty"`  
-	AccessToken *string `json:"access_token,omitempty"`
+	ID           *string `json:"id,omitempty"`           
+	Scope        *string `json:"scope,omitempty"`        
+	TokenType    *string `json:"token_type,omitempty"`   
+	AccessToken  *string `json:"access_token,omitempty"` 
+	RefreshToken *string `json:"refresh_token,omitempty"`
+	ExpiresIn    *int64  `json:"expires_in,omitempty"`   
 }
 
 type Enterprise struct {
